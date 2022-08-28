@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.preference.PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <androidx.preference.ListPreference
+        android:defaultValue="@string/preference_value_caltxt_delivery_data"
+        android:entries="@array/preference_caltxt_delivery_sms"
+        android:entryValues="@array/preference_caltxt_delivery_sms_values"
+        android:key="@string/preference_key_caltxt_delivery_sms"
+        android:negativeButtonText="@null"
+        android:positiveButtonText="@null"
+        android:title="@string/preference_title_caltxt_delivery_sms" />
+    <!-- commented to HIDE
+        ***dont let user restrict his/her visibility by providing this sessing, so hide it***
+        <ListPreference
+            android:defaultValue="@string/preference_value_contact_discovery_anyone"
+            android:entries="@array/preference_caltxt_contact_discovery"
+            android:entryValues="@array/preference_caltxt_contact_discovery_values"
+            android:key="@string/preference_key_contact_discovery"
+            android:negativeButtonText="@null"
+            android:positiveButtonText="@null"
+            android:title="@string/preference_title_caltxt_contact_discovery" />
+     -->
+    <!-- androidx.preference.ListPreference
+        android:defaultValue="@string/preference_value_caltxt_alignment_default"
+        android:entries="@array/preference_caltxt_align"
+        android:entryValues="@array/preference_caltxt_align_values"
+        android:key="@string/preference_key_caltxt_align"
+        android:negativeButtonText="@null"
+        android:positiveButtonText="@null"
+        android:title="@string/preference_title_caltxt_align" /> -->
+    <!-- ***always show caltxt toast indefinetly, let user discard it!
+        <androidx.preference.ListPreference
+            android:defaultValue="@string/preference_value_caltxt_toast_timeout_default"
+            android:entries="@array/preference_caltxt_timeout"
+            android:entryValues="@array/preference_caltxt_timeout_values"
+            android:key="@string/preference_key_caltxt_timeout"
+            android:negativeButtonText="@null"
+            android:positiveButtonText="@null"
+            android:title="@string/preference_title_caltxt_timeout" /> -->
+    <!-- ***quick response is accessible via Action bar, so no need to provide in Settings***
+           <Preference android:title="@string/preference_title_caltxt_quickresponse"
+                    android:summary="@string/preference_summary_autoresponse_enabled"
+                    android:key="@string/preference_key_autoresponse" >
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:targetPackage="com.jovistar.caltxt"
+                android:targetClass="com.jovistar.caltxt.activity.QuickResponseEdit     </Preference>
+     -->
+
+    <!--    <CheckBoxPreference
+            android:key="pref_service"
+            android:title="@string/pref_title_caltxt_service"
+            android:summary="@string/pref_service_summary"
+            android:defaultValue="false" />
+        <CheckBoxPreference
+            android:key="pref_name"
+            android:title="@string/pref_name"
+            android:summary="@string/pref_name_summary"
+            android:defaultValue="false" />
+        <CheckBoxPreference
+            android:key="pref_location"
+            android:title="@string/pref_location"
+            android:summary="@string/pref_location_summary"
+            android:defaultValue="false" />
+        <CheckBoxPreference
+            android:key="pref_picture"
+            android:title="@string/pref_picture"
+            android:summary="@string/pref_picture_summary"
+            android:defaultValue="false" /> -->
+    <!-- androidx.preference.ListPreference
+        android:defaultValue="@string/preference_value_places_remember_default"
+        android:entries="@array/preference_caltxt_places_detect"
+        android:entryValues="@array/preference_caltxt_places_detect_values"
+        android:key="@string/preference_key_places_remember"
+        android:negativeButtonText="@null"
+        android:positiveButtonText="@null"
+        android:title="@string/preference_title_caltxt_places" /> -->
+</androidx.preference.PreferenceScreen>
