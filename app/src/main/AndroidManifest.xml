@@ -1,0 +1,307 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.jovistar.caltxt">
+
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <!--    <uses-permission android:name="android.permission.WRITE_CONTACTS" />-->
+    <!--    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />-->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+
+    <!--    <uses-permission android:name="android.permission.DISABLE_KEYGUARD" />-->
+    <!--    <uses-permission android:name="android.permission.WAKE_LOCK" />-->
+    <uses-permission android:name="android.permission.BROADCAST_STICKY" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+<!--    <uses-permission android:name="android.permission.ACCESS_COARSE_UPDATES" />-->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+    <!-- commented for Google Policy Change<uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS" />-->
+<!--    <uses-permission android:name="android.permission.READ_DATA_STATE" />-->
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+
+    <application
+        android:name=".app.Caltxt"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <activity
+            android:name="com.jovistar.caltxt.activity.CaltxtPager"
+            android:label="@string/text_app_name"
+            android:launchMode="singleTask">
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH" />
+            </intent-filter>
+            <meta-data
+                android:name="android.app.searchable"
+                android:resource="@xml/searchable" />
+        </activity>
+        <activity
+            android:name="com.jovistar.caltxt.activity.CaltxtStatusPicker"
+            android:label="@string/edit_status_title"
+            android:noHistory="true"
+            android:theme="@style/CaltxtAlertDialogThemeNoTitle"></activity>
+        <activity
+            android:name="com.jovistar.caltxt.activity.QuickResponseEdit"
+            android:icon="@drawable/ic_settings_white_24dp"
+            android:label="@string/menu_select_autoresponse"
+            android:launchMode="singleTop"
+            android:theme="@style/CaltxtAlertDialogTheme"></activity>
+        <activity
+            android:name="com.jovistar.caltxt.activity.IFTTTRuleWizard"
+            android:icon="@drawable/ic_settings_white_24dp"
+            android:label="@string/edit_rule"
+            android:launchMode="singleTop"
+            android:theme="@style/CaltxtAlertDialogThemeNoTitle"></activity>
+        <activity
+            android:name="com.jovistar.caltxt.activity.CaltxtStatusPager"
+            android:icon="@drawable/ic_settings_white_24dp"
+            android:label="@string/edit_status_title"
+            android:launchMode="singleTop"></activity>
+        <activity
+            android:name="com.jovistar.caltxt.activity.IFTTT"
+            android:icon="@drawable/ic_settings_white_24dp"
+            android:label="@string/edit_rules"
+            android:launchMode="singleTop"></activity>
+        <activity
+            android:name="com.jovistar.caltxt.activity.CaltxtToast"
+            android:excludeFromRecents="true"
+            android:screenOrientation="portrait"
+            android:taskAffinity=""
+            android:theme="@style/CaltxtDialogTheme">
+            <!-- <intent-filter>
+                <action android:name="android.intent.action.ANSWER" />
+            </intent-filter> -->
+        </activity>
+        <activity
+            android:name="com.jovistar.caltxt.activity.CaltxtInputActivity"
+            android:excludeFromRecents="true"
+            android:screenOrientation="portrait"
+            android:taskAffinity="">
+            <!-- <intent-filter>
+                <action android:name="android.intent.action.ANSWER" />
+            </intent-filter> -->
+        </activity>
+        <activity
+            android:name="com.jovistar.caltxt.activity.ToastAutoResponseExtend"
+            android:excludeFromRecents="true"
+            android:screenOrientation="portrait"
+            android:taskAffinity=""
+            android:theme="@style/Theme.AppCompat.Translucent"></activity>
+        <activity
+            android:name="com.jovistar.caltxt.activity.WifiScanPermission"
+            android:excludeFromRecents="true"
+            android:taskAffinity=""></activity>
+        <activity
+            android:name="com.jovistar.caltxt.activity.ToastRuleAction"
+            android:excludeFromRecents="false"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:taskAffinity=""
+            android:theme="@style/Theme.AppCompat.Translucent"></activity>
+        <activity
+            android:name="com.jovistar.caltxt.activity.Settings"
+            android:icon="@drawable/ic_settings_white_24dp"
+            android:label="@string/action_settings"
+            android:launchMode="singleTop">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.jovistar.caltxt.activity.CaltxtPager" />
+        </activity>
+
+        <activity
+            android:name="com.jovistar.caltxt.activity.SignupProfile"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan"></activity>
+        <!--        07112019, changed to adjustPan to avoid hiding edittext when keyboard comes up, android:windowSoftInputMode="stateHidden"></activity>-->
+        <activity
+            android:name="com.jovistar.caltxt.activity.TOS"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name="com.jovistar.caltxt.activity.PhotoFullscreen"
+            android:launchMode="singleTop"></activity>
+        <activity
+            android:name="com.jovistar.caltxt.activity.FAQ"
+            android:label="@string/action_faq"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.jovistar.caltxt.activity.CaltxtPager" />
+        </activity>
+        <activity
+            android:name="com.jovistar.caltxt.activity.Places"
+            android:label="@string/action_places"
+            android:launchMode="singleTop">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.jovistar.caltxt.activity.CaltxtStatusPager" />
+        </activity>
+        <activity
+            android:name="com.jovistar.caltxt.activity.SplashScreen"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.jovistar.caltxt.activity.About"
+            android:launchMode="singleTop"></activity>
+        <activity
+            android:name="com.jovistar.caltxt.activity.TourPager"
+            android:label="@string/action_tour"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.jovistar.caltxt.activity.CaltxtPager" />
+        </activity>
+        <activity
+            android:name="com.jovistar.caltxt.activity.AcknowledgementList"
+            android:excludeFromRecents="true"
+            android:launchMode="singleInstance"
+            android:screenOrientation="portrait"></activity>
+
+        <activity
+            android:name="com.jovistar.caltxt.activity.Profile"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.jovistar.caltxt.activity.CaltxtPager" />
+        </activity>
+
+        <!--service android:name='com.jovistar.caltxt.service.MqttPingScheduler$MqttPingJob'
+            android:permission="android.permission.BIND_JOB_SERVICE"
+            android:exported="true" />-->
+        <!--<service android:name="com.jovistar.caltxt.service.WifiScanJob"-->
+        <!--android:permission="android.permission.BIND_JOB_SERVICE"-->
+        <!--android:exported="true" />-->
+        <service android:name="com.jovistar.caltxt.service.RebootService" android:label="RebootService">
+            <intent-filter>
+                <action android:name="com.jovistar.caltxt.service.RebootService" />
+            </intent-filter>
+        </service>
+        <!--service
+            android:name="com.jovistar.caltxt.service.MessageService"
+            android:enabled="true">
+        </service>-->
+        <service
+            android:name="org.eclipse.paho.android.service.MqttService"
+            android:enabled="true"
+            android:stopWithTask="false" />
+        <service
+            android:name="com.jovistar.caltxt.firebase.storage.UploadService"
+            android:enabled="true" />
+        <service
+            android:name="com.jovistar.caltxt.firebase.storage.DownloadService"
+            android:enabled="true" />
+
+        <service
+            android:name="com.jovistar.caltxt.firebase.client.FirebaseIDService"
+            android:enabled="true">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+            </intent-filter>
+        </service>
+        <!-- ./Firebase Notifications -->
+        <!--receiver android:name='com.jovistar.caltxt.mqtt.service.MqttClientAndroidService'
+            android:enabled="true"
+            android:exported="true"/>-->
+        <!-- If WifiScanAlarmReceiver receiver is not declared here, then alarm is not received
+        by the BroadcastReceiver
+        -->
+        <receiver
+            android:name='com.jovistar.caltxt.service.WifiScanReceiver'
+            android:enabled="true" />
+        <receiver
+            android:name='com.jovistar.caltxt.service.WifiScanAlarmReceiver'
+            android:enabled="true" />
+        <receiver
+            android:name='com.jovistar.caltxt.service.RuleAlarmReceiver'
+            android:enabled="true" />
+        <!--receiver android:name='com.jovistar.caltxt.service.MqttPingAlarm'
+            android:enabled="true"
+            android:exported="true"/>-->
+        <!--receiver
+            android:name="com.jovistar.caltxt.network.sms.SMSBroadcastReceiver"
+            android:enabled="true"
+            android:permission="android.permission.RECEIVE_SMS">
+            <intent-filter>
+                <action android:name="android.provider.Telephony.SMS_RECEIVED" />
+            </intent-filter>
+        </receiver-->
+
+        <receiver android:name="com.jovistar.caltxt.service.RebootReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
+        <!--receiver
+            android:name="com.jovistar.caltxt.app.Caltxt$RebootReceiverApp"
+            android:enabled="true"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>-->
+
+        <!-- Apps targeting Android 7.0 (API level 24) and higher do not receive
+        CONNECTIVITY_ACTION broadcasts if they declare the broadcast receiver in
+        their manifest. Apps will still receive CONNECTIVITY_ACTION broadcasts if
+        they register their BroadcastReceiver with Context.registerReceiver() and
+        that context is still valid
+        -->
+        <!--receiver
+            android:name="com.jovistar.caltxt.network.data.ConnectivityBroadcastReceiver"
+            android:enabled="true"
+            android:permission="android.permission.ACCESS_NETWORK_STATE">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+        </receiver>-->
+
+        <receiver
+            android:name="com.jovistar.caltxt.network.voice.CallHandler"
+            android:enabled="true"
+            android:permission="android.permission.READ_PHONE_STATE">
+            <intent-filter>
+                <action android:name="android.intent.action.NEW_OUTGOING_CALL" />
+                <action android:name="android.intent.action.PHONE_STATE" />
+            </intent-filter>
+        </receiver>
+
+        <receiver
+            android:name="com.jovistar.caltxt.firebase.client.FirebaseReceiver"
+            android:enabled="true">
+            <intent-filter>
+                <action android:name="com.jovistar.caltxt.firebase.registrationComplete" />
+                <action android:name="com.jovistar.caltxt.firebase.pushNotification" />
+                <action android:name="com.jovistar.caltxt.broadcast.call_mobile" />
+            </intent-filter>
+        </receiver>
+
+        <!-- Firebase Notifications -->
+        <service
+            android:name="com.jovistar.caltxt.firebase.client.ConnectionFirebase"
+            android:stopWithTask="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+    </application>
+
+</manifest>

@@ -1,0 +1,56 @@
+{
+  "project_info": {
+    "project_number": "138704848634",
+    "firebase_url": "https://caltxt-5104a.firebaseio.com",
+    "project_id": "caltxt-5104a",
+    "storage_bucket": "caltxt-5104a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:138704848634:android:0af0a9a94833188b",
+        "android_client_info": {
+          "package_name": "com.jovistar.caltxt"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "138704848634-u1qe87dbhqdf6qpamtbthr8d20o71t4o.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.jovistar.caltxt",
+            "certificate_hash": "9cb6bef5cfec43906f2f043a3d81047321a40230"
+          }
+        },
+        {
+          "client_id": "138704848634-qocohmd9rnu2d8iqa5rqt5t9s9derpfr.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.jovistar.caltxt",
+            "certificate_hash": "c461caa1ab451b164d23a6665f294080e689b6af"
+          }
+        },
+        {
+          "client_id": "138704848634-tg0tgnane0bbhlilde55s4cao1kpr0al.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDAgfGZMz5En5B2aPSrbOsPdAt6z6ZNyGA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "138704848634-tg0tgnane0bbhlilde55s4cao1kpr0al.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
