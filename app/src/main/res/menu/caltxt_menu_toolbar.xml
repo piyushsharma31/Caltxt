@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:caltxt="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/pager_action_search"
+        android:icon="@drawable/ic_search_white_24dp"
+        android:title="@string/action_search"
+        caltxt:actionViewClass="androidx.appcompat.widget.SearchView"
+        caltxt:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/pager_action_dialer_pad"
+        android:icon="@drawable/ic_dialpad_white_24dp"
+        android:title="@string/action_dial"
+        android:titleCondensed="@string/action_dial"
+        caltxt:showAsAction="never" />
+    <item
+        android:id="@+id/pager_action_add_person"
+        android:icon="@drawable/ic_person_add_white_24dp"
+        android:title="@string/action_addperson"
+        android:titleCondensed="@string/willMessageShort"
+        caltxt:showAsAction="never" />
+    <item
+        android:id="@+id/pager_action_clearblock"
+        android:icon="@drawable/ic_delete_white_24dp"
+        android:title="@string/action_clearblocklist"
+        android:titleCondensed="@string/action_clearblocklist"
+        caltxt:showAsAction="never" />
+
+    <item
+        android:id="@+id/pager_action_refresh"
+        android:icon="@drawable/ic_refresh_white_24dp"
+        android:title="@string/action_refresh"
+        android:titleCondensed="@string/willMessageShort"
+        caltxt:showAsAction="never" />
+</menu>

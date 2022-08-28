@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:caltxt="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/action_addressbook_add"
+        android:icon="@drawable/ic_add_white_24dp"
+        android:title="@string/action_addperson"
+        android:titleCondensed="@string/action_addperson"
+        caltxt:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_addressbook_update"
+        android:icon="@drawable/ic_edit_white_24dp"
+        android:title="@string/action_updateperson"
+        android:titleCondensed="@string/action_updateperson"
+        caltxt:showAsAction="ifRoom" />
+
+</menu>

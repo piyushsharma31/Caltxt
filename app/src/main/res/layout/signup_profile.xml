@@ -1,0 +1,342 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/signup_toolbar"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/toolbar" />
+    </LinearLayout>
+
+    <!-- Login form -->
+
+    <ScrollView
+        android:id="@+id/signup_form"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/signup_toolbar">
+
+        <RelativeLayout
+            style="@style/SignupFormContainer"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:id="@+id/profile_image_frame_head"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <RelativeLayout
+                    android:id="@+id/profile_image_frame"
+                    android:layout_width="128dp"
+                    android:layout_height="128dp"
+                    android:layout_centerInParent="true"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginBottom="24dp">
+
+                    <ImageView
+                        android:id="@+id/profile_image"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/button_bg_round_lightgreen"
+                        android:contentDescription="@string/profile_img"
+                        android:scaleType="centerInside"
+                        android:src="@drawable/ic_person_white_24dp_web" />
+
+                    <ProgressBar
+                        android:id="@+id/photo_progress_bar"
+                        style="@android:style/Widget.ProgressBar.Small"
+                        android:layout_width="72dp"
+                        android:layout_height="72dp"
+                        android:padding="24dp" />
+
+                </RelativeLayout>
+
+                <androidx.appcompat.widget.AppCompatImageButton
+                    android:id="@+id/image_edit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/profile_image_frame"
+                    android:layout_alignParentRight="true"
+                    android:layout_margin="8dp"
+                    android:background="?attr/selectableItemBackground"
+                    android:padding="4dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/ic_edit_white_24dp" />
+
+                <androidx.appcompat.widget.AppCompatImageButton
+                    android:id="@+id/image_remove"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/profile_image_frame"
+                    android:layout_alignParentLeft="true"
+                    android:layout_margin="8dp"
+                    android:background="?attr/selectableItemBackground"
+                    android:padding="4dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/ic_delete_white_24dp" />
+            </RelativeLayout>
+
+            <androidx.cardview.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/card_name_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/profile_image_frame_head"
+                android:layout_marginTop="6dp"
+                card_view:cardCornerRadius="4dp">
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="6dp">
+
+                    <TextView
+                        android:id="@+id/card_name_title"
+                        style="@style/TextMedium"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="6dp"
+                        android:text="@string/profile_name_title"
+                        android:textColor="?attr/colorPrimary" />
+
+                    <!--TextView
+                        android:id="@+id/input_name_description"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="6dp"
+                        android:text="@string/input_name_description"
+                        style="@style/TextSmall" /-->
+
+                    <EditText
+                        android:id="@+id/name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ "
+                        android:hint="@string/prompt_name"
+                        android:inputType="textPersonName"
+                        android:maxLength="@string/profile_value_name_length_max" />
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/card_occupation_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/card_name_view"
+                android:layout_marginTop="6dp"
+                card_view:cardCornerRadius="4dp">
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="6dp">
+
+                    <TextView
+                        android:id="@+id/card_occupation_title"
+                        style="@style/TextMedium"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="6dp"
+                        android:text="@string/profile_occupation_title"
+                        android:textColor="?attr/colorPrimary" />
+
+                    <TextView
+                        android:id="@+id/input_occupation_description"
+                        style="@style/TextSmall"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="6dp"
+                        android:text="@string/input_occupation_description" />
+
+                    <EditText
+                        android:id="@+id/input_occupation"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ "
+                        android:hint="@string/prompt_occupation"
+                        android:inputType="textPersonName"
+                        android:maxLength="@string/profile_value_name_length_max" />
+
+                    <TextView
+                        android:id="@+id/input_company_description"
+                        style="@style/TextSmall"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="6dp"
+                        android:text="@string/input_company_description"
+                        android:visibility="gone"/>
+
+                    <EditText
+                        android:id="@+id/input_company"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/prompt_company"
+                        android:maxLength="@string/profile_value_name_length_max" />
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/card_phone_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/card_occupation_view"
+                android:layout_marginTop="6dp"
+                android:layout_marginBottom="6dp"
+                card_view:cardCornerRadius="4dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="6dp">
+
+                    <TextView
+                        android:id="@+id/card_cc_title"
+                        style="@style/TextMedium"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="6dp"
+                        android:text="@string/profile_cc_phone_title"
+                        android:textColor="?attr/colorPrimary" />
+
+                    <TextView
+                        android:id="@+id/input_phoneno_description"
+                        style="@style/TextSmall"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/card_cc_title"
+                        android:layout_marginBottom="12dp"
+                        android:text="@string/input_phone_description" />
+
+                    <Spinner
+                        android:id="@+id/countries_spinner"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/input_phoneno_description"
+                        android:layout_marginBottom="6dp" />
+
+                    <EditText
+                        android:id="@+id/phone_number"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/countries_spinner"
+                        android:layout_marginBottom="6dp"
+                        android:hint="@string/prompt_mobile"
+                        android:inputType="phone"
+                        android:maxLength="10"
+                        android:maxLines="1"
+                        android:padding="6dp" />
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/phone_number_verify_again"
+                        style="@style/TextSmall"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignTop="@+id/phone_number"
+                        android:layout_alignParentRight="true"
+                        android:layout_toRightOf="@id/phone_number"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:minWidth="0dp"
+                        android:minHeight="0dp"
+                        android:padding="6dp"
+                        android:text="@string/action_verify_number"
+                        android:textColor="@color/red" />
+
+                    <EditText
+                        android:id="@+id/phone_number2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/phone_number"
+                        android:layout_marginBottom="6dp"
+                        android:hint="@string/prompt_mobile2"
+                        android:inputType="phone"
+                        android:maxLength="10"
+                        android:maxLines="1"
+                        android:padding="6dp" />
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/phone_number2_verify_again"
+                        style="@style/TextSmall"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignTop="@+id/phone_number2"
+                        android:layout_alignParentRight="true"
+                        android:layout_toRightOf="@id/phone_number2"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:minWidth="0dp"
+                        android:minHeight="0dp"
+                        android:padding="6dp"
+                        android:text="@string/action_verify_number"
+                        android:textColor="@color/red" />
+
+                    <!--TextView
+                        android:id="@+id/input_phone_disclaimer"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/input_phoneno_description"
+                        android:layout_marginBottom="6dp"
+                        style="@style/TextSmall"
+                        android:text="@string/input_phone_disclaimer" /-->
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/card_terms_description"
+                style="@style/TextExtraSmall"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/card_phone_view"
+                android:layout_marginBottom="48dp"
+                android:padding="9dp"
+                android:autoLink="all"
+                android:text="@string/signup_terms_agreement"
+                android:textColor="?attr/colorPrimary" />
+            <!--androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/sign_up_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_below="@id/card_phone_view"
+                android:layout_gravity="right"
+                android:layout_marginTop="16dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:text="@string/action_sign_in_register"
+                style="@style/TextSmall"
+                android:textColor="?attr/colorPrimary" /-->
+            <!--View
+                android:id="@+id/divider"
+                android:layout_width="fill_parent"
+                android:layout_height="0.5dp"
+                android:layout_below="@id/card_phone_view"
+                android:layout_marginTop="16dp"
+                android:background="@xml/divider_full"
+                android:visibility="invisible"/-->
+
+        </RelativeLayout>
+    </ScrollView>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/sign_up_button"
+        style="@style/TextMedium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="bottom"
+        android:background="@drawable/custom_button_green"
+        android:padding="6dp"
+        android:text="@string/action_sign_in_register"
+        android:textColor="@color/white" />
+
+</RelativeLayout>

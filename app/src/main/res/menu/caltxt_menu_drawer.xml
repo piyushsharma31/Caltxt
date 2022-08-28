@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:caltxt="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/pager_action_faq"
+        android:icon="@drawable/ic_help_outline_white_24dp"
+        android:title="@string/action_faq"
+        android:titleCondensed="@string/willMessageShort"
+        caltxt:showAsAction="collapseActionView" />
+    <item
+        android:id="@+id/pager_action_tour"
+        android:icon="@drawable/ic_action_star_0"
+        android:title="@string/action_tour"
+        android:titleCondensed="@string/action_tour"
+        caltxt:showAsAction="collapseActionView" />
+    <item
+        android:id="@+id/pager_action_sendfeedback"
+        android:icon="@drawable/ic_feedback_white"
+        android:title="@string/action_sendfeedback"
+        android:titleCondensed="@string/action_sendfeedback"
+        caltxt:showAsAction="collapseActionView" />
+    <item
+        android:id="@+id/pager_action_sendalert"
+        android:icon="@drawable/ic_send_white_24dp"
+        android:title="@string/action_sendalert"
+        android:titleCondensed="@string/action_sendalert"
+        android:visible="false"
+        caltxt:showAsAction="collapseActionView" />
+    <item
+        android:id="@+id/pager_action_share"
+        android:icon="@drawable/ic_share_white_24dp"
+        android:title="@string/action_share"
+        android:titleCondensed="@string/action_share"
+        caltxt:showAsAction="collapseActionView" />
+    <item
+        android:id="@+id/pager_action_about"
+        android:icon="@drawable/ic_action_about"
+        android:title="@string/action_about"
+        android:titleCondensed="@string/action_about"
+        caltxt:showAsAction="collapseActionView" />
+    <!-- 04012019, DUE TO GOOGLE POLICY CHANGE FOR SMS this preference is disabled-->
+    <item
+        android:id="@+id/pager_action_settings"
+        android:icon="@drawable/ic_settings_white_24dp"
+        android:title="@string/action_settings"
+        android:titleCondensed="@string/action_settings"
+        caltxt:showAsAction="collapseActionView" />
+</menu>

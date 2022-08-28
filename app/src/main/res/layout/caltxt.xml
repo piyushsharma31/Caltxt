@@ -1,0 +1,296 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/toasty"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <!-- header -->
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/toast_head_cancel_img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:background="@xml/button_transparent"
+        android:contentDescription="@string/text_caltxt_img"
+        android:src="@drawable/ic_close_white_24dp" />
+
+    <RelativeLayout
+        android:id="@+id/toast_head"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="8dp">
+
+        <RelativeLayout
+            android:id="@+id/caltxt_person_img_frame"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_alignParentLeft="true"
+            android:layout_marginRight="12dp">
+
+            <ImageButton
+                android:id="@+id/caltxt_person_img"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:background="@drawable/button_bg_round_lightgreen"
+                android:contentDescription="@string/text_caller_img"
+                android:scaleType="centerInside"
+                android:src="@drawable/ic_person_white_24dp" />
+
+            <ImageView
+                android:id="@+id/caltxt_person_img_overlay_border"
+                android:layout_width="17dp"
+                android:layout_height="17dp"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:adjustViewBounds="true"
+                android:background="@drawable/circle_white"
+                android:contentDescription="@string/text_caller_img" />
+
+            <ImageView
+                android:id="@+id/caltxt_person_img_overlay"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:adjustViewBounds="true"
+                android:background="@drawable/circle_grey"
+                android:contentDescription="@string/text_caller_img"
+                android:padding="2dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_available_white_24dp" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/toast_head_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_toRightOf="@id/caltxt_person_img_frame"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:id="@+id/toast_head_subject_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/toast_head_text"
+            android:layout_marginBottom="4dp"
+            android:layout_toRightOf="@+id/caltxt_person_img_frame"
+            android:textColor="@color/white50" />
+
+        <TextView
+            android:id="@+id/toast_head_subject2_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/toast_head_subject_text"
+            android:layout_marginBottom="4dp"
+            android:layout_toRightOf="@+id/caltxt_person_img_frame"
+            android:textColor="@color/white50"
+            android:textSize="12sp" />
+    </RelativeLayout>
+
+    <View
+        android:id="@+id/toast_head_divider"
+        android:layout_width="fill_parent"
+        android:layout_height="0.5dp"
+        android:layout_below="@id/toast_head"
+        android:background="@xml/divider_full" />
+
+    <!-- body -->
+
+    <RelativeLayout
+        android:id="@+id/toast_body"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/toast_head_divider"
+        android:padding="8dp">
+
+        <!-- android:background="@drawable/calloutto_trans_white_black_text_middle" -->
+
+        <ImageView
+            android:id="@+id/toast_body_text_time_icon"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_marginRight="4dp"
+            android:contentDescription="@string/text_caller_img" />
+
+        <TextView
+            android:id="@+id/toast_body_text_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/toast_body_text_time_icon"
+            android:textColor="@color/white50"
+            android:textSize="12sp" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/caltxt_pic"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:layout_below="@+id/toast_body_text_time"
+            android:layout_marginTop="6dp"
+            android:background="@color/lightgrey"
+            android:layout_alignParentLeft="true"
+            android:scaleType="centerInside" />
+
+        <TextView
+            android:id="@+id/toast_body_text"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/caltxt_pic"
+            android:layout_marginTop="4dp"
+            android:autoLink="all"
+            android:textColor="@color/white" />
+    </RelativeLayout>
+
+    <!-- body2 -->
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ack_pic"
+        android:layout_width="96dp"
+        android:layout_height="96dp"
+        android:background="@color/lightgrey"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/toast_body"
+        android:layout_marginTop="4dp"
+        android:layout_marginRight="4dp"
+        android:scaleType="centerInside" />
+
+    <RelativeLayout
+        android:id="@+id/toast_body2"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ack_pic"
+        android:orientation="vertical"
+        android:padding="8dp">
+
+        <!-- android:background="@drawable/calloutto_trans_white_black_text_middle" -->
+
+        <AutoCompleteTextView
+            android:id="@+id/toast_body2_edit"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:hint="@string/action_call_hint"
+            android:inputType="text|textShortMessage|textMultiLine"
+            android:maxLength="@string/preference_value_caltxt_length_max"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white50" />
+
+        <TextView
+            android:id="@+id/toast_body2_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/toast_body2_edit"
+            android:autoLink="all"
+            android:textColor="@color/white50" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/toast_footer"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/toast_body2"
+        android:layout_gravity="bottom"
+        android:orientation="vertical"
+        android:padding="8dp">
+
+        <!-- android:background="@drawable/calloutto_trans_white_black_text_bottom" -->
+
+        <View
+            android:id="@+id/toast_footer_border"
+            android:layout_width="fill_parent"
+            android:layout_height="0.5dp" />
+
+        <androidx.cardview.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/card_command_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            card_view:cardCornerRadius="4dp">
+
+            <LinearLayout
+                android:id="@+id/toast_footer_inner"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/toast_footer_border"
+                android:layout_gravity="bottom"
+                android:orientation="horizontal">
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/toast_footer_send_img"
+                    style="@style/TextSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:contentDescription="@string/send_message"
+                    android:drawableTop="@drawable/ic_send_black_24dp"
+                    android:text="@string/action_send" />
+
+                <View
+                    android:id="@+id/button_divider"
+                    android:layout_width="0.5dp"
+                    android:layout_height="fill_parent"
+                    android:background="@color/grey" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/toast_footer_call_img"
+                    style="@style/TextSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:contentDescription="@string/action_call"
+                    android:drawableTop="@drawable/ic_call_black_24dp"
+                    android:text="@string/action_call" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/toast_footer2"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/toast_footer"
+        android:orientation="vertical"
+        android:padding="8dp">
+
+        <View
+            android:id="@+id/toast_footer2_border"
+            android:layout_width="fill_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginBottom="2dp" />
+
+        <ImageView
+            android:id="@+id/toast_footer2_alert_img"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@id/toast_footer2_border"
+            android:contentDescription="@string/text_caller_img"
+            android:src="@drawable/ic_warning_white_24dp" />
+
+        <ProgressBar
+            android:id="@+id/toast_progress_bar"
+            style="@android:style/Widget.ProgressBar.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/toast_footer2_border" />
+
+        <TextView
+            android:id="@+id/toast_footer2_alert"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="4dp"
+            android:layout_toRightOf="@+id/toast_progress_bar"
+            android:text="@string/toast_initcall"
+            android:textColor="@color/white50" />
+    </RelativeLayout>
+
+</RelativeLayout>

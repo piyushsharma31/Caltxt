@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/rulewizard_toolbar"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/toolbar" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/rule_description"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rulewizard_toolbar"
+        android:padding="4dp"
+        android:background="@color/grey200" />
+
+    <EditText
+        android:id="@+id/rulewizard_actionvalue"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rule_description"
+        android:inputType="text|textShortMessage|textMultiLine"
+        android:layout_marginTop="4dp"
+        android:maxLength="@string/preference_value_caltxt_length_max"
+        android:hint="@string/action_call_hint" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/rule_action_time"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/ic_access_time_white_24dp"
+        android:background="@xml/button_transparent"
+        android:padding="12dp"
+        android:layout_below="@+id/rule_description"
+        android:text="@string/action_pick_time"/>
+
+    <View
+        android:id="@+id/divider1"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_below="@id/rule_action_time"
+        android:background="@xml/divider2"
+        android:visibility="visible" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/rule_action_date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/ic_date_range_white_24dp"
+        android:background="@xml/button_transparent"
+        android:layout_below="@+id/divider1"
+        android:padding="12dp"
+        android:text="@string/action_pick_date"/>
+
+    <View
+        android:id="@+id/divider2"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_below="@id/rule_action_date"
+        android:background="@xml/divider2"
+        android:visibility="visible" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/rule_action_recurrance"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/ic_repeat_one_white_24dp"
+        android:background="@xml/button_transparent"
+        android:layout_below="@+id/divider2"
+        android:padding="12dp"
+        android:text="@string/action_pick_occurances"
+        style="@style/TextSmall" />
+
+    <View
+        android:id="@+id/divider3"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_below="@id/rule_action_recurrance"
+        android:background="@xml/divider2"
+        android:visibility="gone" />
+
+    <CheckBox
+        android:id="@+id/checkbox_alwaysask"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/divider3"
+        android:padding="12dp"
+        android:text="@string/prompt_alwaysask"/>
+
+    <ListView
+        android:id="@+id/rulewizard_list"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/checkbox_alwaysask"
+        android:animationCache="false"
+        android:divider="@null"
+        android:dividerHeight="0dp"
+        android:layout_marginTop="4dp"
+        android:listSelector="@xml/list_selector"
+        android:scrollingCache="false"
+        android:smoothScrollbar="true" />
+
+</RelativeLayout>

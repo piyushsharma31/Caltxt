@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!--LinearLayout
+        android:id="@+id/tos_toolbar"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/toolbar" />
+    </LinearLayout-->
+
+    <ScrollView
+        android:id="@+id/mainScrollView"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:fillViewport="true">
+<!--        android:layout_below="@+id/tos_toolbar"-->
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="20dp"
+                android:layout_centerInParent="true"
+                android:text="@string/caltxt_description_get_started"
+                style="@style/TextMedium" />
+
+            <ImageView
+                android:id="@+id/logo"
+                android:layout_width="72dp"
+                android:layout_height="72dp"
+                android:layout_marginBottom="20dp"
+                android:layout_centerInParent="true"
+                android:layout_above="@id/description"
+                android:contentDescription="@string/logo"
+                android:src="@mipmap/ic_launcher" />
+
+            <TextView
+                android:id="@+id/welcome"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_above="@id/logo"
+                android:layout_marginBottom="20dp"
+                android:gravity="center_horizontal"
+                android:text="@string/welcome_get_started"
+                style="@style/TextMediumBold"/>
+
+            <TextView
+                android:id="@+id/terms_description"
+                style="@style/TextExtraSmall"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/agree_button"
+                android:padding="20dp"
+                android:autoLink="all"
+                android:text="@string/signup_terms_agreement"
+                android:textColor="@color/grey" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/agree_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_alignParentBottom="true"
+                android:padding="6dp"
+                android:text="@string/agree_terms_of_service"
+                android:textColor="@color/white"
+                android:background="@drawable/custom_button_green"
+                style="@style/TextMedium" />
+        </RelativeLayout>
+    </ScrollView>
+
+</RelativeLayout>

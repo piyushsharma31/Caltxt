@@ -1,0 +1,11 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="si.ziga.switchinsideab.MainActivity">
+    <item
+        android:id="@+id/previous_step"
+        android:icon="@drawable/ic_arrow_back_white_24dp"
+        android:title="@string/edit_rules_previous"
+        app:showAsAction="always"
+        android:titleCondensed="@string/edit_rules_previous" />
+</menu>
