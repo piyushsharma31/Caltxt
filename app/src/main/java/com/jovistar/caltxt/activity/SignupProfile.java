@@ -66,6 +66,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.PhoneAuthCredential;
+import com.google.firebase.auth.PhoneAuthOptions;
 import com.google.firebase.auth.PhoneAuthProvider;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
@@ -340,7 +341,8 @@ public class SignupProfile extends AppCompatActivity implements
             }
         });
 
-        if (false == TelephonyInfo.getInstance(mContext).isDualSIM()) {
+        //commented 18SEP2022
+        if (false == /*TelephonyInfo.getInstance(mContext).*/isDualSIM()) {
             mMobileNumber2View.setVisibility(View.GONE);
             mMobileNumber2VerifyButton.setVisibility(View.GONE);
         }
@@ -417,7 +419,7 @@ public class SignupProfile extends AppCompatActivity implements
 
                     //commented 07-JAN-19, Google policy change
 //                    if (PackageManager.PERMISSION_GRANTED
-//                            != Caltxt.checkPermission(SignupProfile.this, Manifest.permission.SEND_SMS,
+//                            != Caltxt.checkPermission(SignupProfile.this, "android.permission.SEND_SMS",
 //                            Caltxt.CALTXT_PERMISSIONS_REQUEST_SEND_SMS,
 //                            "Caltxt need permission to send SMS to verify phone number")) {
 //
@@ -595,7 +597,7 @@ public class SignupProfile extends AppCompatActivity implements
             @Override
             public void onCodeAutoRetrievalTimeOut(String verificationId) {
                 Toast.makeText(SignupProfile.this, "onCodeAutoRetrievalTimeOut", Toast.LENGTH_LONG).show();
-                Log.d(TAG, "onCodeAutoRetrievalTimeOut: "+verificationId);
+                Log.d(TAG, "onVerificationFailed: "+verificationId);
 
                 mVerificationCountdownTimer.cancel();
                 ringProgressDialog.dismiss();
@@ -623,12 +625,21 @@ public class SignupProfile extends AppCompatActivity implements
 
         final int timeoutMsecs = Integer.parseInt((getResources().getString(R.string.timeoutInMiliSecondsSignupCCW)));
 
-        PhoneAuthProvider.getInstance().verifyPhoneNumber(
+        PhoneAuthOptions options =
+                PhoneAuthOptions.newBuilder(mAuth)
+                        .setPhoneNumber(phoneNumber)       // Phone number to verify
+                        .setTimeout(60L, TimeUnit.SECONDS) // Timeout and unit
+                        .setActivity(this)                 // Activity (for callback binding)
+                        .setCallbacks(mCallbacks)          // OnVerificationStateChangedCallbacks
+                        .build();
+        PhoneAuthProvider.verifyPhoneNumber(options);
+
+        /*PhoneAuthProvider.getInstance().verifyPhoneNumber(
                 phoneNumber,        // Phone number to verify
                 timeoutMsecs/2,                 // Timeout duration
                 TimeUnit.MILLISECONDS,   // Unit of timeout
                 this,               // Activity (for callback binding)
-                mCallbacks);        // OnVerificationStateChangedCallbacks
+                mCallbacks);*/        // OnVerificationStateChangedCallbacks
     }
 
     private void verifyVerificationCodeFirebase(String verificationId, String otp) {
@@ -653,7 +664,7 @@ public class SignupProfile extends AppCompatActivity implements
                             //startActivity(intent);
 
                             // if SIM2 exits and not verified, do it now!
-                            if (TelephonyInfo.getInstance(mContext).isDualSIM()
+                            if (/*TelephonyInfo.getInstance(mContext).*/isDualSIM()
                                     && !isSIM2Verified(SignupProfile.this)) {
 
                                 String CC = Addressbook.getInstance(getApplicationContext()).getMyCountryCode();
@@ -1056,7 +1067,8 @@ public class SignupProfile extends AppCompatActivity implements
         mCompanyView.setText(company_old);
 
         mMobileNumberView.setText(getPreference(this, getString(R.string.profile_key_mobile)));
-        if (TelephonyInfo.getInstance(mContext).isDualSIM()) {
+        //commented 18SEP2022
+        if (/*TelephonyInfo.getInstance(mContext).*/isDualSIM()) {
             mMobileNumber2View.setText(getPreference(this, getString(R.string.profile_key_mobile2)));
         }
         status_old = getPreference(this, getString(R.string.profile_key_status_headline));
@@ -1170,17 +1182,21 @@ public class SignupProfile extends AppCompatActivity implements
 
             String[] additionalArgs = {(isSIM1Verified(SignupProfile.this)
                     ? "" : fqdn + "\n\n")
-                    + ((TelephonyInfo.getInstance(mContext).isDualSIM()
+                    + ((/*TelephonyInfo.getInstance(mContext).*/isDualSIM()
                     && !isSIM2Verified(SignupProfile.this))
                     ? fqdn2 : "")};
 
             String actionTaken = getString(R.string.prompt_caltxt_signup_mobile, (Object[]) additionalArgs);
             builder.setMessage(actionTaken).setTitle(
-                    TelephonyInfo.getInstance(mContext).isDualSIM() ? R.string.prompt_caltxt_signup2 : R.string.prompt_caltxt_signup);
+                    /*TelephonyInfo.getInstance(mContext).*/isDualSIM() ? R.string.prompt_caltxt_signup2 : R.string.prompt_caltxt_signup);
 //			builder.setIcon(R.drawable.ic_warning_white_24dp);
             AlertDialog dialog = builder.create();
             dialog.show();
         }
+    }
+
+    public static boolean isDualSIM() {
+        return false;
     }
 
     private boolean initiateSignUpFirebase(String phone1, String phone2) {
@@ -1193,7 +1209,7 @@ public class SignupProfile extends AppCompatActivity implements
 
             sendVerificationCodeFirebase("+" + CC + phone1);
 
-        } else if (TelephonyInfo.getInstance(mContext).isDualSIM()
+        } else if (/*TelephonyInfo.getInstance(mContext).*/isDualSIM()
                     && !isSIM2Verified(SignupProfile.this)) {
 
             sendVerificationCodeFirebase("+"+CC +phone2);
@@ -1512,7 +1528,7 @@ public class SignupProfile extends AppCompatActivity implements
             cancel = true;
         }
 
-        if (TelephonyInfo.getInstance(this).isDualSIM()) {
+        if (/*TelephonyInfo.getInstance(this).*/isDualSIM()) {
             // Check for a valid mobile number.
             if (TextUtils.isEmpty(mMobileNumber2)) {
                 mMobileNumber2View.setError(getString(R.string.error_field_required));

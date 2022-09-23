@@ -1,6 +1,5 @@
 package com.jovistar.caltxt.activity;
 
-import android.Manifest;
 import android.app.SearchManager;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -160,6 +159,17 @@ public class CaltxtPager extends AppCompatActivity implements PropertyChangeList
             }
         }
 
+        // commented 14112019, do not need addressbook write permission. all edits/add/delete contacts is not allowed Caltxt
+/*        if (!Caltxt.isPermissionGranted(this, "android.permission.WRITE_CONTACTS")) {
+            if (PackageManager.PERMISSION_GRANTED !=
+                    Caltxt.checkPermission(this, "android.permission.WRITE_CONTACTS",
+                            Caltxt.CALTXT_PERMISSIONS_REQUEST_WRITE_CONTACTS,
+                            "Caltxt need permission to read your contacts to build contact list. It will never upload your contacts" +
+                                    " to remote server")) {
+                return;
+            }
+        }
+*/
         String first = SignupProfile.getPreference(this, getString(R.string.property_app_run_first_time));
 
         if (first.length() == 0) {
@@ -424,6 +434,14 @@ public class CaltxtPager extends AppCompatActivity implements PropertyChangeList
 //		    	openStatusDlg();
             }
         });
+
+        if (PackageManager.PERMISSION_GRANTED
+                != Caltxt.checkPermission(this, "android.permission.ACCESS_COARSE_LOCATION",
+                Caltxt.CALTXT_PERMISSIONS_REQUEST_ACCESS_COARSE_LOCATION,
+                "Caltxt needs permission to use nearby WiFi hotspots to tag your status")) {
+//			finish();
+            return;
+        }
 
 //		notifyDataSetChangedFragments();
     }

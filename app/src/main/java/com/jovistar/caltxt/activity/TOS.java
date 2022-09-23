@@ -20,8 +20,6 @@ import com.jovistar.caltxt.app.Caltxt;
 import java.util.HashMap;
 import java.util.Map;
 
-import static com.jovistar.caltxt.app.Caltxt.isPermissionGranted;
-
 public class TOS extends AppCompatActivity {
     private static final String TAG = "TOS";
 
@@ -67,84 +65,30 @@ public class TOS extends AppCompatActivity {
                     @Override
                     public void onClick(View view) {
 
-                        if (PackageManager.PERMISSION_GRANTED != requestPermissionReadPhoneState()) {
+                        if (PackageManager.PERMISSION_GRANTED
+                                != Caltxt.checkPermission(TOS.this, "android.permission.READ_PHONE_STATE",
+                                Caltxt.CALTXT_PERMISSIONS_REQUEST_READ_PHONE_STATE,
+                                "Caltxt need permission to manage your phone calls")) {
 
                             return;
                         }
 
-                        if (PackageManager.PERMISSION_GRANTED != requestPermissionReadContacts()) {
+						/*
+						if(PackageManager.PERMISSION_GRANTED
+								!= CaltxtApp.checkPermission(this, "android.permission.INTERNET",
+										CaltxtApp.CALTXT_PERMISSIONS_REQUEST_ACCESS_INTERNET)) {
 
-                            return;
-                        }
-
-                        if (PackageManager.PERMISSION_GRANTED != requestPermissionReadLocationFine()) {
-
-                            return;
-                        }
-
-                        if (PackageManager.PERMISSION_GRANTED != requestPermissionReadLocation()) {
-
-                            return;
-                        }
-
+							return;
+						}
+				*/
+//						if (tos_checkbox.isChecked()) {
                         Intent i = new Intent(getBaseContext(), SignupProfile.class);
                         i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         startActivity(i);
                         finish();
+//						}
                     }
                 });
-    }
-
-    int requestPermissionReadPhoneState() {
-
-        if (PackageManager.PERMISSION_GRANTED
-                != Caltxt.checkPermission(TOS.this, Manifest.permission.READ_PHONE_STATE,
-                Caltxt.CALTXT_PERMISSIONS_REQUEST_READ_PHONE_STATE,
-                getResources().getString(R.string.permission_description_read_phone_state))) {
-
-            return PackageManager.PERMISSION_DENIED;
-        } else {
-            return PackageManager.PERMISSION_GRANTED;
-        }
-    }
-
-    int requestPermissionReadContacts() {
-
-        if (PackageManager.PERMISSION_GRANTED
-                != Caltxt.checkPermission(TOS.this, Manifest.permission.READ_CONTACTS,
-                Caltxt.CALTXT_PERMISSIONS_REQUEST_READ_CONTACTS,
-                getResources().getString(R.string.permission_description_read_contacts))) {
-
-            return PackageManager.PERMISSION_DENIED;
-        } else {
-            return PackageManager.PERMISSION_GRANTED;
-        }
-    }
-
-    int requestPermissionReadLocation() {
-
-        if (PackageManager.PERMISSION_GRANTED
-                != Caltxt.checkPermission(TOS.this, Manifest.permission.ACCESS_COARSE_LOCATION,
-                Caltxt.CALTXT_PERMISSIONS_REQUEST_ACCESS_COARSE_LOCATION,
-                getResources().getString(R.string.permission_description_read_location))) {
-
-            return PackageManager.PERMISSION_DENIED;
-        } else {
-            return PackageManager.PERMISSION_GRANTED;
-        }
-    }
-
-    int requestPermissionReadLocationFine() {
-
-        if (PackageManager.PERMISSION_GRANTED
-                != Caltxt.checkPermission(TOS.this, Manifest.permission.ACCESS_FINE_LOCATION,
-                Caltxt.CALTXT_PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION,
-                getResources().getString(R.string.permission_description_read_location))) {
-
-            return PackageManager.PERMISSION_DENIED;
-        } else {
-            return PackageManager.PERMISSION_GRANTED;
-        }
     }
 
     @Override
@@ -180,43 +124,22 @@ public class TOS extends AppCompatActivity {
     @Override
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
 
+        Log.v(TAG, TAG + "::onRequestPermissionsResult");
+        Map<String, Integer> perms = new HashMap<String, Integer>();
         switch (requestCode) {
-            case Caltxt.CALTXT_PERMISSIONS_REQUEST_ACCESS_COARSE_LOCATION:
-            case Caltxt.CALTXT_PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION:
-            case Caltxt.CALTXT_PERMISSIONS_REQUEST_READ_CONTACTS:
             case Caltxt.CALTXT_PERMISSIONS_REQUEST_READ_PHONE_STATE:
-                for (int i = 0; i < permissions.length; i++) {
-                    Log.v(TAG, TAG + "::onRequestPermissionsResult "+permissions[i] +" grant "+grantResults[i]);
+                for (int i = 0; i < permissions.length; i++)
+                    perms.put(permissions[i], grantResults[i]);
+
+                if (perms.get(Manifest.permission.READ_PHONE_STATE) == PackageManager.PERMISSION_GRANTED) {
+                    // Permission Granted
+                    Intent i = new Intent(getBaseContext(), SignupProfile.class);
+                    i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    startActivity(i);
+                } else {
+                    // Permission Denied
                 }
-
-                if(isPermissionGranted(TOS.this, Manifest.permission.READ_PHONE_STATE)) {
-
-                    if(isPermissionGranted(TOS.this, Manifest.permission.READ_CONTACTS)) {
-
-                        if(isPermissionGranted(TOS.this, Manifest.permission.ACCESS_FINE_LOCATION)) {
-                            Log.v(TAG, TAG + "::onRequestPermissionsResult Permission Granted");
-
-                            // Permission Granted
-                            Intent i = new Intent(getBaseContext(), SignupProfile.class);
-                            i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                            startActivity(i);
-                            finish();
-                        } else {
-
-                            if (PackageManager.PERMISSION_GRANTED != requestPermissionReadLocationFine()) {
-
-                                return;
-                            }
-                        }
-                    } else {
-
-                        if (PackageManager.PERMISSION_GRANTED != requestPermissionReadContacts()) {
-
-                            return;
-                        }
-                    }
-                }
-
+                finish();
                 break;
             default:
                 super.onRequestPermissionsResult(requestCode, permissions, grantResults);

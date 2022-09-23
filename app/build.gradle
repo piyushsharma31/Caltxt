@@ -3,19 +3,19 @@ apply plugin: 'com.android.application'
 android {
     signingConfigs {
         debug {
-            storeFile file('C:\\Work\\My\\keystore\\keystore')
+            storeFile file('E:\\git\\Keystore\\android-keystore\\keystore')
             storePassword 'shonto'
             keyPassword 'shonto'
-            keyAlias = 'keystore-android'
+            keyAlias = 'keystore-android-20'
         }
     }
-    compileSdkVersion 29
+    compileSdkVersion 31
     buildToolsVersion "29.0.2"
     defaultConfig {
         applicationId "com.jovistar.caltxt"
-        minSdkVersion 16
-        targetSdkVersion 29
-        versionCode 52
+        minSdkVersion 26
+        targetSdkVersion 30
+        versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         signingConfig signingConfigs.debug
@@ -26,10 +26,16 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation platform('com.google.firebase:firebase-bom:30.4.1')
+    implementation 'com.google.firebase:firebase-auth'
     implementation 'com.google.firebase:firebase-auth:+'
     implementation 'com.google.firebase:firebase-messaging:+'
     implementation 'com.google.firebase:firebase-database:+'

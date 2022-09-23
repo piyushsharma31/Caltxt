@@ -1,0 +1,164 @@
+<resources>
+
+
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="preferenceTheme">@style/PreferenceThemeOverlay</item>
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+        <!--item name="android:windowBackground">@color/creme</item>-->
+        <!-- colorPrimary is used for the default action bar background -->
+        <item name="colorPrimary">@color/caltxt_color_appbar</item>
+        <!-- colorPrimaryDark is used for the status bar -->
+        <item name="colorPrimaryDark">@color/caltxt_color_statusbar</item>
+
+        <item name="drawerArrowStyle">@style/DrawerArrowStyle</item>
+        <item name="windowActionModeOverlay">true</item>
+        <item name="actionModeBackground">@color/pink</item>
+
+        <!--
+         colorAccent is used as the default value for colorControlActivated
+         which is used to tint widgets
+        -->
+        <item name="colorAccent">@color/pink</item>
+        <item name="dialogTheme">@style/CaltxtDialogTheme</item>
+        <item name="alertDialogTheme">@style/CaltxtAlertDialogTheme</item>
+    </style>
+
+    <style name="TextLarge" parent="@android:style/TextAppearance.Large">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/colorPrimaryText</item>
+    </style>
+
+    <style name="TextMedium" parent="@android:style/TextAppearance.Medium">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/colorSecondaryText</item>
+    </style>
+
+    <style name="TextMediumBold" parent="@android:style/TextAppearance.Medium">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/colorSecondaryText</item>
+    </style>
+
+    <style name="TextSmall" parent="@android:style/TextAppearance.Small">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/colorSecondaryText</item>
+    </style>
+
+    <style name="TextExtraSmall" parent="@android:style/TextAppearance.Small">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/colorSecondaryText</item>
+    </style>
+
+    <style name="TextExtraExtraSmall" parent="@android:style/TextAppearance.Small">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">10sp</item>
+        <item name="android:textColor">@color/colorSecondaryText</item>
+    </style>
+
+    <style name="DrawerArrowStyle" parent="@style/Widget.AppCompat.DrawerArrowToggle">
+        <item name="spinBars">true</item>
+        <item name="color">@android:color/black</item>
+    </style>
+
+    <style name="MyCustomTabTextAppearance" parent="TextAppearance.Design.Tab">
+        <item name="android:textSize">14sp</item>
+        <item name="textAllCaps">true</item>
+    </style>
+
+    <style name="MyCustomTabLayout" parent="Widget.Design.TabLayout">
+        <item name="tabIndicatorColor">?attr/colorAccent</item>
+        <item name="tabIndicatorHeight">2dp</item>
+        <item name="tabPaddingStart">12dp</item>
+        <item name="tabPaddingEnd">12dp</item>
+        <item name="tabBackground">?attr/selectableItemBackground</item>
+        <item name="tabTextAppearance">@style/MyCustomTabTextAppearance</item>
+        <item name="tabSelectedTextColor">?android:textColorPrimary</item>
+    </style>
+
+    <style name="CaltxtDialogTheme" parent="Theme.AppCompat.Light.Dialog">
+        <item name="windowNoTitle">true</item>
+        <!-- Used for the buttons -->
+        <item name="colorAccent">@color/pink</item>
+        <!-- Used for the title and text -->
+        <!-- Used for the title and text -->
+        <item name="android:textColorPrimary">@color/caltxt_color_appbar</item>
+        <!-- Used for the background -->
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <!-- item name="android:windowContentOverlay">@null</item> -->
+        <!-- item name="android:windowIsFloating">true</item> -->
+        <!-- item name="android:windowCloseOnTouchOutside">false</item> -->
+    </style>
+
+    <style name="CaltxtAlertDialogTheme" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <!-- item name="windowNoTitle">true</item> -->
+        <!-- Used for the buttons -->
+        <item name="colorAccent">@color/pink</item>
+        <!-- Used for the title and text -->
+        <item name="android:textColorPrimary">@color/caltxt_color_appbar</item>
+        <!-- Used for the background -->
+        <item name="android:background">@android:color/transparent</item>
+    </style>
+
+    <style name="CaltxtAlertDialogThemeNoTitle" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="windowNoTitle">true</item>
+        <!-- Used for the buttons -->
+        <item name="colorAccent">@color/pink</item>
+        <!-- Used for the title and text -->
+        <item name="android:textColorPrimary">@color/caltxt_color_appbar</item>
+        <!-- Used for the background -->
+        <item name="android:background">@android:color/transparent</item>
+        <item name="colorPrimary">@color/caltxt_color_appbar</item>
+        <item name="colorPrimaryDark">@color/caltxt_color_statusbar</item>
+    </style>
+
+    <style name="Theme.AppCompat.Translucent" parent="Theme.AppCompat.NoActionBar">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:colorBackgroundCacheHint">@null</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation</item>
+        <item name="android:background">@android:color/transparent</item>
+    </style>
+
+    <style name="PreferenceThemeOverlay">
+        <item name="preferenceScreenStyle">@style/Preference.PreferenceScreen</item>
+        <item name="preferenceFragmentStyle">@style/PreferenceFragment</item>
+        <item name="preferenceCategoryStyle">@style/Preference.Category</item>
+        <item name="preferenceStyle">@style/Preference</item>
+        <item name="preferenceInformationStyle">@style/Preference.Information</item>
+        <item name="checkBoxPreferenceStyle">@style/Preference.CheckBoxPreference</item>
+        <item name="switchPreferenceCompatStyle">@style/Preference.SwitchPreferenceCompat</item>
+        <item name="dialogPreferenceStyle">@style/Preference.DialogPreference</item>
+        <item name="editTextPreferenceStyle">@style/Preference.DialogPreference.EditTextPreference
+        </item>
+        <item name="preferenceFragmentListStyle">@style/PreferenceFragmentList</item>
+    </style>
+    <!--
+        Base application theme, dependent on API level. This theme is replaced
+        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
+    -->
+    <!--<style name="AppBaseTheme" parent="@style/CaltxtBaseTheme">-->
+        <!--
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+        -->
+        <!-- Support library compatibility -->
+        <!-- item name="listPopupWindowStyle">@style/CaltxtPopupWindow</item> -->
+    <!--</style>-->
+
+    <!-- Application theme. -->
+    <!--<style name="AppTheme" parent="AppBaseTheme">-->
+        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+    <!--</style>-->
+
+</resources>

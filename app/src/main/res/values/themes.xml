@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- App theme styles -->
+    <!-- DARK  <style name="CaltxtBaseTheme" parent="@style/Theme.AppCompat"> -->
+    <!-- LIGHT DARK ACTION BAR -->
+    <!--<style name="CaltxtBaseTheme1" parent="@style/Theme.AppCompat.Light.DarkActionBar">-->
+        <!--<item name="android:windowBackground">@color/creme</item>-->
+        <!--<item name="android:colorBackground">@color/creme</item>-->
+        <!--<item name="colorPrimary">@color/darkslategrey</item>-->
+    <!--</style>-->
+
+    <!-- ActionBar styles -->
+    <!--
+         style name="CaltxtActionBar" parent="@style/Theme.AppCompat.Light.DarkActionBar">
+        <item name="android:background">@color/darkslategrey</item>
+
+    -->
+    <!-- Support library compatibility -->
+    <!--
+    item name="background">@color/darkslategrey</item>
+    </style>
+    -->
+
+    <!-- style name="CaltxtPopupWindow" parent="@style/Widget.AppCompat.ListPopupWindow"> -->
+    <!-- OPEN THIS TO COLOR API<=8 <item name="android:popupBackground">@color/red</item> -->
+    <!-- /style> -->
+
+</resources>

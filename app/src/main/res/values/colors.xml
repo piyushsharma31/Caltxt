@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--first byte stores transparency, last 3 bytes store color
+        Hex Opacity Values
+        100% � FF
+        95% � F2
+        90% � E6
+        85% � D9
+        80% � CC
+        75% � BF
+        70% � B3
+        65% � A6
+        60% � 99
+        55% � 8C
+        50% � 80
+        45% � 73
+        40% � 66
+        35% � 59
+        30% � 4D
+        25% � 40
+        20% � 33
+        15% � 26
+        10% � 1A
+        5% � 0D
+        0% � 00 -->
+    <color name="white">#ffffffff</color>
+    <color name="white50">#80ffffff</color>
+    <color name="red">#ffff0000</color>
+    <color name="lightred">#ff5252</color>
+    <color name="darkred">#ffd50000</color>
+    <color name="default_background">#f9f9f9</color>
+    <color name="darkslategrey">#2F4F4F</color>
+    <color name="grey200">#eeeeee</color>
+    <color name="darkgrey">#ff1a1a1a</color>
+    <color name="lightgrey">#d3d3d3</color>
+    <color name="lightgrey50">#80d3d3d3</color>
+    <color name="silvergrey75">#bfe0e0e0</color>
+    <color name="grey">#ff808080</color>
+    <color name="black">#ff000000</color>
+    <!-- 75% transparent � BF (see table above)-->
+    <color name="darkyellow">#80FF8800</color>
+    <color name="lightyellow">#FFBB33</color>
+    <color name="lightblue">#0091ea</color>
+    <color name="selectblue">#33b5e5</color>
+    <color name="green">#b9c78e</color>
+    <color name="green20pc">#80b9c78e</color>
+    <color name="lightgreen_transparent_50pc">#80b9c78e</color>
+    <!--<color name="lightgreen_transparent_50pc">#80c8e6c9</color>-->
+    <color name="lightgreen">#43a047</color>
+    <color name="darkgreen">#388e3c</color>
+    <color name="blue_white_text">#2196f3</color>
+    <color name="caltxt_color_appbar">#33691e</color>
+    <color name="caltxt_color_statusbar">#1b5e20</color>
+    <color name="background_tab_pressed">#6633B5E5</color>
+    <color name="pink">#e91e63</color>
+    <color name="color_status_busy">#ff4444</color>
+    <color name="color_status_available">#99cc00</color>
+    <color name="color_status_away">#ffbb33</color>
+    <color name="color_status_dnd">#cc0000</color>
+    <color name="color_status_offline">#757575</color>
+    <color name="colorPrimaryText">#D9000000</color>
+    <color name="colorSecondaryText">#8C000000</color>
+</resources>

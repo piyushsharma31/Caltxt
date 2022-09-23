@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="CountryCodes">
+        <item>Algeria (+213)</item>
+        <item>Argentina (+54)</item>
+        <item>Australia (+61)</item>
+        <item>Austria (+43)</item>
+        <item>Bahrain (+973)</item>
+        <item>Bangladesh (+880)</item>
+        <item>Belgium (+32)</item>
+        <item>Bhutan (+975)</item>
+        <item>Brazil (+55)</item>
+        <item>Brunei Darussalam (+673)</item>
+        <item>Bulgaria (+359)</item>
+        <item>Cambodia (+855)</item>
+        <item>Cameroon (+237)</item>
+        <item>Canada (+1)</item>
+        <item>Chile (+56)</item>
+        <item>China (+86)</item>
+        <item>Colombia (+57)</item>
+        <item>Costa Rica (+506)</item>
+        <item>Croatia (+385)</item>
+        <item>Cuba (+53)</item>
+        <item>Cyprus (+357)</item>
+        <item>Czech Rep (+420)</item>
+        <item>Democratic Peoples Republic of Korea (+850)</item>
+        <item>Denmark (+45)</item>
+        <item>Egypt (+20)</item>
+        <item>Fiji (+679)</item>
+        <item>Finland (+358)</item>
+        <item>France (+33)</item>
+        <item>Germany (+49)</item>
+        <item>Greece (+30)</item>
+        <item>Greenland (+299)</item>
+        <item>Guatemala (+502)</item>
+        <item>Hong Kong (+852)</item>
+        <item>Hungary (+36)</item>
+        <item>Iceland (+354)</item>
+        <item>India (+91)</item>
+        <item>Indonesia (+62)</item>
+        <item>Ireland (+353)</item>
+        <item>Israel (+972)</item>
+        <item>Italy (+39)</item>
+        <item>Japan (+81)</item>
+        <item>Korea (+82)</item>
+        <item>Kuwait (+965)</item>
+        <item>Luxembourg (+352)</item>
+        <item>Malaysia (+60)</item>
+        <item>Maldives (+960)</item>
+        <item>Mali (+223)</item>
+        <item>Mauritius (+230)</item>
+        <item>Mexico (+52)</item>
+        <item>Morocco (+212)</item>
+        <item>Myanmar (+95)</item>
+        <item>Nepal (+977)</item>
+        <item>Netherlands (+31)</item>
+        <item>New Zealand (+64)</item>
+        <item>Norway (+47)</item>
+        <item>Oman (+968)</item>
+        <item>Pakistan (+92)</item>
+        <item>Peru (+51)</item>
+        <item>Philippines (+63)</item>
+        <item>Poland (+48)</item>
+        <item>Portugal (+351)</item>
+        <item>Qatar (+974)</item>
+        <item>Russian Federation (+7)</item>
+        <item>Saudi Arabia (+966)</item>
+        <item>Seychelles (+248)</item>
+        <item>Singapore (+65)</item>
+        <item>South Africa (+27)</item>
+        <item>Spain (+34)</item>
+        <item>Sri Lanka (+94)</item>
+        <item>Sweden (+46)</item>
+        <item>Switzerland (+41)</item>
+        <item>Taiwan (+886)</item>
+        <item>Thailand (+66)</item>
+        <item>Tunisia (+216)</item>
+        <item>Turkey (+90)</item>
+        <item>Ukraine (+380)</item>
+        <item>United Arab Emirates (+971)</item>
+        <item>United Kingdom (+44)</item>
+        <item>United States (+1)</item>
+        <item>Venezuela (+58)</item>
+        <item>Viet Nam (+84)</item>
+        <item>Zambia (+260)</item>
+        <item>Zimbabwe (+263)</item>
+    </string-array>
+</resources>

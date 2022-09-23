@@ -494,6 +494,8 @@ public class DTOListAdapter extends ArrayAdapter<IDTObject> implements Filterabl
         } else if (rowitem.getCName().equals("XMob")) {
             holder.imageViewIndicatorRight.setVisibility(View.GONE);
             XMob no = (XMob) rowitem;
+//			holder.textViewSubject.setText((no.getSubject().length() == 0 
+//					? (no.getNumber()/*no.getUsername().length()>10?("+"+no.getUsername()):no.getUsername()*/) : no.getSubject()));
             holder.buttonInvite.setTag(no.getUsername());
             // keyCallIcon = no.getHeadline();
             // keyCallIcon = Globals.getContactStatus(no.getUsername());

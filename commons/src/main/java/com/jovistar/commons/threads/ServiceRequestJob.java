@@ -177,6 +177,7 @@ public class ServiceRequestJob implements Runnable {
 		String url = createUrl(request.unm, request.svc, request.op,
 				request.sesid);
 //		Log.d("ServiceRequestJob", "ServiceRequestJob:execute:url:" + url);
+		// CCMIDlet.instance.displayFactory.getProgressUI().showWait("preparing xml"+"op:"+op+"svc:"+svc);
 		// callerUI.setTitle(CCMIDlet.instance.properties.title_reqesting);//moved
 		// to mfacade
 		try {

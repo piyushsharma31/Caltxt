@@ -123,10 +123,6 @@ public class IFTTTRuleWizard extends AppCompatActivity {
                     theRule.setActionRepeat(XRul.RULES_REPEAT_HOURLY);
                     d1 = getResources().getDrawable(R.drawable.ic_repeat_white_24dp);
                 } else if (pickOccurance.getText().toString().equals(XRul.RULES_REPEAT_HOURLY)) {
-                    /*pickOccurance.setText(XRul.RULES_REPEAT_MINUTES);
-                    theRule.setActionRepeat(XRul.RULES_REPEAT_MINUTES);
-                    d1 = getResources().getDrawable(R.drawable.ic_repeat_white_24dp);
-                } else if (pickOccurance.getText().toString().equals(XRul.RULES_REPEAT_MINUTES)) {*/
                     pickOccurance.setText(XRul.RULES_REPEAT_DAILY);
                     theRule.setActionRepeat(XRul.RULES_REPEAT_DAILY);
                     d1 = getResources().getDrawable(R.drawable.ic_repeat_white_24dp);
@@ -181,7 +177,7 @@ public class IFTTTRuleWizard extends AppCompatActivity {
         if (theRule.getActionWhen() > 0)
             pickTime.setText(sdf.format(new Date(theRule.getActionWhen())));
         else
-            pickTime.setText(R.string.pick_time);
+            pickTime.setText(R.string.pick_text);
 
         pickDate = findViewById(R.id.rule_action_date);
         pickDate.setOnClickListener(new OnClickListener() {
@@ -202,7 +198,7 @@ public class IFTTTRuleWizard extends AppCompatActivity {
         if (theRule.getActionWhen() > 0)
             pickDate.setText(sdf.format(new Date(theRule.getActionWhen())));
         else
-            pickDate.setText(R.string.pick_date);
+            pickDate.setText(R.string.pick_text);
         Log.d(TAG, "onCreate getActionWhen " + theRule.getActionWhen());
 
         listview = findViewById(R.id.rulewizard_list);

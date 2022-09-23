@@ -1,6 +1,5 @@
 package com.jovistar.caltxt.activity;
 
-import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
@@ -81,6 +80,14 @@ public class CaltxtStatusPager extends AppCompatActivity {
             }
         });
 
+        if (PackageManager.PERMISSION_GRANTED
+                != Caltxt.checkPermission(this, "android.permission.ACCESS_COARSE_LOCATION",
+                Caltxt.CALTXT_PERMISSIONS_REQUEST_ACCESS_COARSE_LOCATION,
+                "Caltxt needs permission to use nearby WiFi hotspots to tag your status")) {
+//			finish();
+            return;
+        }
+
     }
 
     @Override
@@ -160,11 +167,10 @@ public class CaltxtStatusPager extends AppCompatActivity {
 
         return super.onPrepareOptionsMenu(menu);
     }
-/*
+
     @Override
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
         switch (requestCode) {
-            case Caltxt.CALTXT_PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION:
             case Caltxt.CALTXT_PERMISSIONS_REQUEST_ACCESS_COARSE_LOCATION:
                 if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     // Permission Granted
@@ -180,5 +186,5 @@ public class CaltxtStatusPager extends AppCompatActivity {
             default:
                 super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         }
-    }*/
+    }
 }

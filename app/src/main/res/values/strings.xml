@@ -1,0 +1,467 @@
+<resources>
+    <string name="app_name">Caltxt</string>
+    <!-- Strings related to login -->
+    <string name="auto_response_expires">Automatic response period expires&#160;</string>
+    <string name="last_seen">Last seen&#160;</string>
+    <string name="info_delivering_caltxt">Delivering Caltxt</string>
+    <string name="rule_left">Just left&#160;</string>
+    <string name="rule_arrived">Arrived&#160;</string>
+    <string name="pick_text">Pick text</string>
+    <string name="logo">Logo</string>
+    <string name="toast_initcall">Initiating call</string>
+    <string name="tour_context_calling">Contextual Calling</string>
+    <string name="tour_auto_response">Set your phone in automatic response mode when you cannot take call and let the caller know why</string>
+    <string name="tour_share_call_purpose">Share the purpose of your call with your callee in real time</string>
+    <string name="tour_title">Identify, Block, Auto respond, Contextual Calling &amp; more</string>
+    <string name="tour_title_subject">Caltxt helps improve your conventional calling experience</string>
+    <string name="tour_title_footer">The caller and the callee, both must have Caltxt app to use this service</string>
+    <string name="tour_title_identify">Identify</string>
+    <string name="tour_title_identify_subject">Identify caller from an unknown number</string>
+    <string name="tour_title_identify_footer">Caller can share his name as he makes a call, so that the called party instantly identifies the caller even from an unknown number</string>
+    <string name="tour_title_block">Block Unwanted Callers</string>
+    <string name="tour_title_block_subject">Have more control over incoming calls</string>
+    <string name="tour_title_block_footer">Block call from unknown caller instantly, or gracefully reject a call with a message from your contact</string>
+    <string name="tour_title_calling">Contextual Calling</string>
+    <string name="tour_title_calling_subject">Instantly know the purpose of an incoming call</string>
+    <string name="tour_title_calling_footer">Caller can share the context (call purpose text) as he makes a call, so that the called party see the call purpose on screen when the phone rings</string>
+    <string name="tour_title_auto">Automatic response</string>
+    <string name="tour_title_auto_subject">Can\'t take calls? Set your phone in Automatic response mode</string>
+    <string name="tour_title_auto_footer">During Automatic response mode, Caltxt automatically sends a predefined text message to your calling contacts</string>
+    <string name="tour_title_missedcall">Missed call alerts</string>
+    <string name="tour_title_missedcall_subject">Never miss a call with Caltxt</string>
+    <string name="tour_title_missedcall_footer">You get missed call alerts for calls made by Caltxt user when your phone was not reachable or was switched off</string>
+    <string name="tour_title_triggers">Triggers</string>
+    <string name="title_my_status">Set my status</string>
+    <string name="title_my_location">Tag this place</string>
+    <string name="tour_title_triggers_subject">Set an action or a reminder for an event</string>
+    <string name="tour_title_triggers_footer">For an event (location change or timer) you can set an action (send text or call a contact). For example, you can set an action to send a text to a contact when you arrive at work, or set a reminder to call a contact when you arrive at home</string>
+
+    <string name="title_sms_verification">Verifying mobile number..</string>
+    <string name="profile_image_title">Profile picture</string>
+    <string name="profile_sim_serial_number">profile_sim_serial_number</string>
+    <string name="profile_status_title">Status and mobile number</string>
+    <string name="profile_name_title">Name</string>
+    <string name="profile_cc_phone_title">Phone number</string>
+    <string name="profile_occupation_title">What do you do ?</string>
+    <string name="profile_phone_title">Phone number</string>
+    <string name="prompt_occupation">Title, Job description</string>
+    <string name="welcome_page_title">Welcome</string>
+    <string name="welcome_get_started">Welcome to Caltxt!</string>
+    <string name="caltxt_description_get_started">Automatic response, missed call alerts, block unwanted calls, and much more!</string>
+    <string name="download_success">Download success</string>
+    <string name="download_failure">Download failed</string>
+    <string name="upload_success">Upload success</string>
+    <string name="upload_failure">Upload failed</string>
+    <string name="welcome_page_subject">Thank you for installing Caltxt! Please share your valuable feedback for improvements</string>
+    <string name="welcome_page_skip">Skip</string>
+    <string name="welcome_page_tour_button_text">Take a quick tour</string>
+    <string name="action_pick_time">Pick time</string>
+    <string name="action_pick_date">Pick date</string>
+    <string name="action_pick_occurances">ONCE</string>
+    <string name="action_ifttt_IF">if</string>
+    <string name="action_ifttt_THEN">then</string>
+    <string name="action_tour">Quick Tour</string>
+    <string name="action_status_change_alert">Status change alert</string>
+    <string name="action_text_reminder_header">Text reminder</string>
+    <string name="action_call_reminder_header">Call reminder</string>
+    <string name="action_mute_reminder_header">Mute phone reminder</string>
+    <string name="action_text_reminder_body">Send text to %1$s now?</string>
+    <string name="action_call_reminder_body">Call %1$s now?</string>
+    <string name="action_share">Share Caltxt</string>
+    <string name="action_refresh">Refresh</string>
+    <string name="action_selectall">Select all</string>
+    <string name="action_block_selected">Block selected contacts</string>
+    <string name="action_block_contact">Block this contact</string>
+    <string name="action_delete_contact">Delete this contact</string>
+    <string name="action_unblock_contact">Unblock this contact</string>
+    <string name="prompt_alwaysask">Always ask</string>
+    <string name="prompt_neverask_description">Caltxt will NOT prompt before completing this action</string>
+    <string name="action_faq">FAQ</string>
+    <string name="action_places">Places</string>
+    <string name="action_invite_contact">INVITE</string>
+    <string name="action_place_forget">FORGET</string>
+    <string name="action_verify_number">Verify</string>
+    <string name="action_sign_in_register">Continue</string>
+    <string name="error_field_required">This field is required</string>
+
+    <string-array name="call_reject_acknowledgement">
+        <item>On vacation, only urgent calls please</item>
+        <item>In different timezone, I\'ll call you back</item>
+        <item>At mall, I\'ll call you back</item>
+        <item>At cinema, I\'ll call you back</item>
+        <item>Out of station, I\'ll call you back</item>
+        <item>Out of office, I\'ll call you back</item>
+        <item>At gym, I\'ll call you back</item>
+        <item>In meeting, I\'ll call you back</item>
+        <item>Driving, I\'ll call you back</item>
+        <item>Busy, I\'ll call you back</item>
+    </string-array>
+
+    <!-- string-array name="preference_status_list_titles">
+        <item>Available</item>
+        <item>Busy</item>
+        <item>Do not disturb</item>
+        <item>Away</item>
+        <item>...</item>
+        <item>Automatic Response</item>
+    </string-array> -->
+    <!-- string-array name="preference_status_list_values">
+        <item>5</item>
+        <item>4</item>
+        <item>3</item>
+        <item>2</item>
+        <item>1</item>
+        <item>0</item>
+    </string-array> -->
+    <!-- string-array name="status_icons">
+        <item>@drawable/ic_available_white_24dp</item>
+        <item>@drawable/ic_busy_white_24dp</item>
+        <item>@drawable/ic_donotdisturb_white_24dp</item>
+        <item>@drawable/ic_away_white_24dp</item>
+        <item>@drawable/ic_more_horiz_white_24dp</item>
+        <item>@drawable/ic_auto_answer_sent_outline_white_24dp</item>
+	</string-array>
+ -->
+    <!-- string-array name="preference_status_grid_values">
+        <item>37</item>
+        <item>36</item>
+        <item>35</item>
+        <item>34</item>
+        <item>33</item>
+        <item>32</item>
+        <item>31</item>
+        <item>30</item>
+        <item>29</item>
+        <item>28</item>
+        <item>27</item>
+        <item>26</item>
+        <item>25</item>
+        <item>24</item>
+        <item>23</item>
+        <item>22</item>
+        <item>21</item>
+        <item>20</item>
+        <item>19</item>
+        <item>18</item>
+        <item>17</item>
+        <item>16</item>
+        <item>15</item>
+        <item>14</item>
+        <item>13</item>
+        <item>12</item>
+        <item>11</item>
+        <item>10</item>
+        <item>9</item>
+        <item>8</item>
+        <item>7</item>
+        <item>6</item>
+        <item>5</item>
+        <item>4</item>
+        <item>3</item>
+        <item>2</item>
+        <item>1</item>
+        <item>0</item>
+    </string-array> -->
+    <string-array name="preference_status_grid_titles">
+        <item>Available</item>
+        <item>Busy</item>
+        <item>Away</item>
+        <item>Do not disturb</item>
+        <item>Automatic Response</item>
+        <!--<item>In bus</item>-->
+        <!--<item>In flight</item>-->
+        <!--<item>In subway</item>-->
+        <!--<item>In train</item>-->
+        <!--<item>In meeting</item>-->
+        <!--<item>In taxi</item>-->
+        <!--<item>In traffic</item>-->
+        <!--<item>Driving</item>-->
+        <!--<item>Dining</item>-->
+        <!--<item>Jogging</item>-->
+        <!--<item>Cycling</item>-->
+        <!--<item>Sightseeing</item>-->
+        <!--<item>Trekking</item>-->
+        <item>at Home</item>
+        <item>at Work</item>
+        <item>at Hotel</item>
+        <item>at Airport</item>
+        <item>at Bar</item>
+        <item>at Cafe</item>
+        <item>at Hospital</item>
+        <item>at Library</item>
+        <item>at Mall</item>
+        <item>at Movie</item>
+        <item>at Restaurant</item>
+        <item>at Casino</item>
+        <item>at Gym</item>
+        <item>at Pool</item>
+        <item>at Spa</item>
+        <item>Forget</item>
+        <!--<item>In loo</item>-->
+        <!--<item>at Golf</item>-->
+        <!--<item>at Smoking</item>-->
+        <!--<item>at Bath</item>-->
+        <!--<item>at Kitchen</item>-->
+        <!--<item>at Childcare</item>-->
+        <!--<item>at Beach</item>-->
+    </string-array>
+    <string-array name="grid_status_icons">
+        <item>@drawable/ic_available_white_24dp</item>
+        <item>@drawable/ic_busy_white_24dp</item>
+        <item>@drawable/ic_away_white_24dp</item>
+        <item>@drawable/ic_donotdisturb_white_24dp</item>
+        <item>@drawable/ic_auto_answer_sent_outline_white_24dp</item>
+        <!--<item>@drawable/ic_directions_bus_white_24dp</item>-->
+        <!--<item>@drawable/ic_flight_white_24dp</item>-->
+        <!--<item>@drawable/ic_directions_subway_white_24dp</item>-->
+        <!--<item>@drawable/ic_directions_railway_white_24dp</item>-->
+        <!--<item>@drawable/ic_business_center_white_24dp</item>-->
+        <!--<item>@drawable/ic_local_taxi_white_24dp</item>-->
+        <!--<item>@drawable/ic_traffic_white_24dp</item>-->
+        <!--<item>@drawable/ic_directions_car_white_24dp</item>-->
+        <!--<item>@drawable/ic_local_dining_white_24dp</item>-->
+        <!--<item>@drawable/ic_directions_run_white_24dp</item>-->
+        <!--<item>@drawable/ic_directions_bike_white_24dp</item>-->
+        <!--<item>@drawable/ic_local_see_white_24dp</item>-->
+        <!--<item>@drawable/ic_terrain_white_24dp</item>-->
+        <item>@drawable/ic_home_white_24dp</item>
+        <item>@drawable/ic_work_white_24dp</item>
+        <item>@drawable/ic_hotel_white_24dp</item>
+        <item>@drawable/ic_local_airport_white_24dp</item>
+        <item>@drawable/ic_local_bar_white_24dp</item>
+        <item>@drawable/ic_local_cafe_white_24dp</item>
+        <item>@drawable/ic_local_hospital_white_24dp</item>
+        <item>@drawable/ic_local_library_white_24dp</item>
+        <item>@drawable/ic_local_mall_white_24dp</item>
+        <item>@drawable/ic_local_movies_white_24dp</item>
+        <item>@drawable/ic_restaurant_white_24dp</item>
+        <item>@drawable/ic_casino_white_24dp</item>
+        <item>@drawable/ic_fitness_center_white_24dp</item>
+        <item>@drawable/ic_pool_white_24dp</item>
+        <item>@drawable/ic_spa_white_24dp</item>
+        <item>@drawable/ic_radio_button_unchecked_white_24dp</item>
+        <!--<item>@drawable/ic_wc_white_24dp</item>-->
+        <!--<item>@drawable/ic_golf_course_white_24dp</item>-->
+        <!--<item>@drawable/ic_smoking_rooms_white_24dp</item>-->
+        <!--<item>@drawable/ic_hot_tub_white_24dp</item>-->
+        <!--<item>@drawable/ic_kitchen_white_24dp</item>-->
+        <!--<item>@drawable/ic_child_care_white_24dp</item>-->
+        <!--<item>@drawable/ic_beach_access_white_24dp</item>-->
+    </string-array>
+
+    <string name="preference_title_caltxt_delivery_sms">Message delivery</string>
+    <string name="property_app_run_first_time">property_first_run</string>
+    <string name="preference_summary_autoresponse_disabled">Automatic response disabled</string>
+
+    <string-array name="preference_autoresponse_array">
+        <item>15 minutes</item>
+        <item>30 minutes</item>
+        <item>1 hour</item>
+        <item>2 hours</item>
+        <item>3 hours</item>
+    </string-array>
+
+    <string-array name="preference_caltxt_delivery_sms">
+        <item>Use SMS when Internet not available</item>
+        <item>Over the Internet</item>
+    </string-array>
+    <string-array name="preference_caltxt_delivery_sms_values">
+        <item>1</item>
+        <item>0</item>
+    </string-array>
+
+    <!--
+    Example settings for Notifications 
+    <string name="preference_header_notifications">Notifications</string>
+    <string name="preference_title_new_message_notifications">New message notifications</string>
+    <string name="preference_title_ringtone">Ringtone</string>
+    <string name="preference_ringtone_silent">Silent</string>
+    <string name="preference_title_vibrate">Vibrate</string>    -->
+    <string name="error_incorrect_number">Mobile number verification could not be completed. Please try again later</string>
+    <string name="error_invalid_number_zero_prefix">Please remove any \'0\' prefix</string>
+    <string name="error_invalid_number">Please enter valid mobile number</string>
+    <string name="error_name_short">Name is too short</string>
+    <string name="prompt_confirm_yes">Yes</string>
+    <string name="prompt_confirm_no">No</string>
+    <string name="prompt_snooze">Snooze</string>
+    <string name="prompt_confirm_edit">Edit</string>
+    <string name="prompt_caltxt_profile_remove_photo">Remove profile photo?</string>
+    <string name="action_caltxt_autoresponse_sms_off">NEVER USE SMS</string>
+    <string name="action_caltxt_autoresponse_sms_on">YES</string>
+    <string name="prompt_caltxt_autoresponse_sms_off">Use SMS for offline contacts?</string>
+    <string name="prompt_caltxt_autoresponse_sms_alert">Automatic response will be sent via SMS to offline contacts. Carrier SMS charges may apply</string>
+    <string name="prompt_caltxt_autoresponse_extend">Extend Automatic response duration?</string>
+    <string name="prompt_caltxt_log_delete_items">Delete selected log items?</string>
+    <string name="prompt_caltxt_log_delete">Delete selected log item?</string>
+    <string name="prompt_caltxt_log_delete_selected_items">You\'ll lose selected log items!</string>
+    <string name="prompt_caltxt_log_delete_selected">You\'ll lose selected log item!</string>
+    <string name="prompt_caltxt_ifttt_delete_items">Delete selected triggers?</string>
+    <string name="prompt_caltxt_ifttt_delete_selected_items">You\'ll lose selected triggers!</string>
+    <string name="prompt_caltxt_ifttt_delete">Delete selected trigger?</string>
+    <string name="prompt_caltxt_ifttt_delete_selected">You\'ll lose selected trigger!</string>
+    <string name="prompt_caltxt_log_block_items">Block selected contacts?</string>
+    <string name="prompt_caltxt_log_block">Block selected contact?</string>
+    <string name="prompt_caltxt_log_block_selected_items">Calls from these numbers will be blocked!</string>
+    <string name="prompt_caltxt_log_block_selected">Calls from this number will be blocked!</string>
+    <string name="prompt_caltxt_block_delete_msg">Blocked list will be lost!</string>
+    <string name="prompt_caltxt_block_delete">Clear blocked list?</string>
+    <string name="prompt_caltxt_block_contact_msg">Calls from this number will be blocked!</string>
+    <string name="prompt_caltxt_place_remember_msg">Caltxt will automatically recognize when you are %1$s next time. You can untag a place anytime</string>
+    <string name="prompt_caltxt_forget_place">Caltxt will untag this place as %1$s</string>
+    <string name="prompt_caltxt_tag_place_change_description">This action will tag this place as \"%1$s\"</string>
+    <string name="prompt_caltxt_forget_place_suggest">To untag this place, press Forget"</string>
+    <string name="prompt_caltxt_tag_place_change">Are you %1$s now ?</string>
+    <string name="prompt_caltxt_forget_place_title">Forget this place</string>
+    <string name="prompt_caltxt_block_contact">Block %1$s ?</string>
+    <string name="prompt_caltxt_delete_contact">Delete %1$s ?</string>
+    <string name="prompt_caltxt_signup">Is this your correct number?</string>
+    <string name="prompt_caltxt_signup2">Continue to verify phone number?</string>
+    <string name="prompt_caltxt_signup_mobile">%1$s</string>
+    <string name="prompt_sms_code">SMS verification code</string>
+    <string name="prompt_mobile">SIM1 phone number</string>
+    <string name="prompt_mobile2">SIM2 phone number</string>
+    <string name="prompt_name">Enter your full name</string>
+    <string name="prompt_text_copied">Text copied to clipboard</string>
+    <string name="prompt_number_copied">Phone number copied to clipboard</string>
+    <string name="edit_rules_previous">Previous</string>
+    <string name="edit_rules">Triggers</string>
+    <string name="edit_rule">Edit trigger</string>
+    <string name="edit_rule_event">Select event</string>
+    <string name="create_rule">Create trigger</string>
+    <string name="select_place">Select place</string>
+    <string name="edit_status_title">Change status</string>
+    <string name="prompt_company">Company</string>
+    <string name="input_occupation_description">Company, Title</string>
+    <string name="input_company_description">Your company, college or school name</string>
+    <string name="profile_img">Your profile photo (optional)</string>
+    <string name="input_text_sms_disclaimer">Call text will be sent over SMS. Carrier SMS charges may apply</string>
+    <string name="input_text_alert_title">Compose your call</string>
+    <string name="text_sent">Text sent</string>
+    <string name="signup_terms_agreement"><![CDATA[<html><p align="justify">By clicking \"Agree and Continue\" you accept the terms of service defined
+        at <a href="http://www.caltxt.com/legal/#Privacy" target="_blank"> http://www.caltxt.com/legal/#Privacy</a></p></html>]]></string>
+    <string name="input_text_cant_send_disclaimer">Text will not be sent. Please check settings</string>
+    <string name="input_phone_description">Select your country and enter your phone number</string>
+    <string name="input_phone_description_profile">Your mobile numbers registered for Caltxt service</string>
+    <string name="agree_terms_of_service">Agree and Continue</string>
+    <string name="terms_of_service"><![CDATA[<html><p align="justify">This is an agreement between Caltxt company (\"Caltxt\"), 
+        the owner and operator of www.caltxt.com (the \"Caltxt Website\"), the Caltxt software, 
+        including Caltxt mobile application (collectively, including all content provided by Caltxt 
+        through Caltxt mobile app and the Caltxt Website, the \"Caltxt Service\", or the \"Service\", 
+        and you (\"you\" or \"You\"), a user of the Service. BY USING THE SERVICE, YOU ACKNOWLEDGE AND 
+        AGREE TO THESE TERMS OF SERVICE, AND CALTXT\'S PRIVACY POLICY, WHICH CAN BE FOUND 
+        AT <a href="http://www.caltxt.com/legal/#Privacy" target="_blank"> http://www.caltxt.com/legal/#Privacy</a>, 
+        AND WHICH ARE INCORPORATED HEREIN BY REFERENCE. 
+        If you choose to not agree with any of these terms, you may not use the Service.</p></html>]]></string>
+    <string name="caltxt_tos_screen"><![CDATA[<html>
+<HEAD>
+ <STYLE type="text/css"></STYLE></HEAD>
+<BODY>
+ <H2><font face="verdana" color="darkgreen">Caltxt</font> </H2>
+ <br>
+ <H1><font face="arial" color="green">Smart calling, with Caltxt</font> </H1>
+  <H3><font face="arial" color="green">Now add text to your calls for complete call context. Now callee knows who is calling and for what! Try it yourself now!</font> </H3>
+</BODY></html>]]></string>
+    <string name="app_version">Version beta</string>
+    <string name="copyright_line1">\u00a9 2019 Caltxt.com</string>
+    <string name="copyright_line2">All rights reserved.</string>
+    <string name="action_sendfeedback">Send feedback</string>
+    <string name="action_sendalert">Send alert</string>
+    <string name="action_delete">DELETE</string>
+    <string name="action_block">BLOCK</string>
+    <string name="action_send">SEND</string>
+    <string name="action_reply">REPLY</string>
+    <string name="action_clear">CLEAR</string>
+    <string name="action_save">SAVE</string>
+    <string name="action_continue">CONTINUE</string>
+    <string name="action_settings">Settings</string>
+    <string name="action_search">Search</string>
+    <string name="action_addperson">Add</string>
+    <string name="action_add">ADD</string>
+    <string name="action_updateperson">Update person</string>
+    <string name="action_dial">Dial</string>
+    <string name="action_call">Call</string>
+    <string name="action_mute">Mute</string>
+    <string name="action_unmute">Unmute</string>
+    <string name="action_remove">REMOVE</string>
+    <string name="action_clearblocklist">Clear</string>
+    <string name="action_about">About</string>
+    <string name="search_hint">Search</string>
+    <string name="text_caller_img">Caller</string>
+    <string name="text_caltxt_img">Caltxt</string>
+    <string name="action_call_reply_hint">Type call reply here</string>
+    <string name="action_call_hint">Type message here</string>
+    <string name="close">CLOSE</string>
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
+    <string name="text_app_name">Caltxt log</string>
+    <string name="send_message">Send message</string>
+    <string name="emptyText"></string>
+    <string name="empty_view_block">There is no blocked number!</string>
+    <string name="empty_view_log">There is no log!</string>
+    <string name="empty_view_rules">There is no trigger defined yet!</string>
+    <string name="no_internet_message">No connection</string>
+    <string name="alert_cannotsend_self">Can\'t send to self!</string>
+    <string name="empty_view_pb">There is no contact!</string>
+
+    <!-- Preferences -->
+    <string name="preference_key_last_wifi_scan">my_pref_last_wifi_scan</string>
+    <string name="preference_key_temporary_status">my_pref_temporary_status</string>
+    <string name="preference_key_temporary_headline">my_pref_temporary_headline</string>
+    <string name="preference_key_caltxt_timeout">my_caltxt_timeout</string>
+    <string name="preference_key_contact_discovery">my_discovery</string>
+    <string name="preference_key_caltxt_delivery_sms">my_caltxt_delivery</string>
+    <string name="profile_key_number_verification_status">my_signup_status</string>
+    <string name="profile_key_number2_verification_status">my_signup2_status</string>
+    <string name="profile_key_fullname">my_name</string>
+    <string name="profile_key_occupation">my_occupation</string>
+    <string name="profile_key_status">my_status</string>
+    <string name="profile_key_location">my_location</string>
+    <string name="profile_key_status_headline">my_status_headline</string>
+    <string name="profile_key_status_icon">my_status_icon</string>
+    <string name="profile_key_mobile">my_mobile</string>
+    <string name="profile_key_mobile2">my_mobile2</string>
+    <string name="profile_key_mobile_country_code">my_mobile_cc</string>
+    <string name="preference_value_caltxt_length_max">160</string>
+    <string name="profile_value_name_length_max">70</string>
+    <string name="profile_value_mobile_default">0000000000</string>
+    <string name="preference_value_caltxt_toast_timeout_default">900</string>
+    <string name="preference_value_caltxt_delivery_sms">1</string>
+    <string name="preference_value_caltxt_delivery_data">0</string>
+    <string name="preference_value_contact_discovery_anyone">0</string>
+    <string name="preference_key_places_remember">places_remember</string>
+    <string name="preference_value_places_remember_default">1</string>
+    <string name="profile_value_name_default">Firstname Lastname</string>
+    <string name="preference_auto_response_value_select">Automatic response duration</string>
+    <string name="menu_select_autoresponse">Set auto response message</string>
+
+    <!-- Caltxt server -->
+    <string name="connectedto">Connected to&#160;</string>
+    <string name="disconnected">Disconnected from</string>
+    <string name="no_status">Unknown connection status to</string>
+    <string name="connecting">Connecting to</string>
+    <string name="disconnecting">Disconnecting from</string>
+    <string name="connectionError">An error occurred connecting to</string>
+    <string name="willMessageShort">Last Will</string>
+
+    <!-- Strings that need formatting -->
+    <!-- string name="service_sms_invite">Hi! Checkout Caltxt for all new calling experience on your smartphone. Download it (beta) today! Visit Caltxt.com</string> -->
+    <string name="service_sms_invite">Hi! you are invited to participate in Caltxt app test program. Caltxt is a rich calling app, it identifies unknown callers, auto respond calls, missed call alerts and much more! Download the Android app at https://play.google.com/apps/testing/com.jovistar.caltxt</string>
+    <!-- <string name="service_restoration">Service will be restored soon</string> -->
+
+    <!-- Hints -->
+    <!-- <string name="serverURIHint">example.example.com</string> -->
+    <!-- <string name="qosHint">2</string> -->
+    <!-- <string name="mqttTimeoutHint">10</string> -->
+    <!-- <string name="portHintMQTT">1883</string> -->
+    <!-- <string name="keepaliveHint">200</string> -->
+    <!-- <string name="mqttTimeoutHint">15000</string> -->
+    <!--     <string name="serverURIHint">10.0.2.2</string> -->
+    <!-- <string name="serverURIHint">192.168.43.200</string> -->
+    <!-- <string name="timeoutHintCCW">15000</string> -->
+    <!-- <string name="serverURIHint">103.231.125.100</string> -->
+    <!-- string name="serverURIHint">ec2-52-74-194-152.ap-southeast-1.compute.amazonaws.com</string> -->
+    <!-- string name="serverURIHint">ec2-54-255-198-18.ap-southeast-1.compute.amazonaws.com</string> -->
+    <!--<string name="serverURIHint">35.196.233.225</string>-->
+    <string name="serverURIHint">apps.caltxt.com</string>
+    <string name="timeoutInMiliSecondsSignupCCW">240000</string>
+</resources>

@@ -85,6 +85,29 @@ public class SplashScreen extends AppCompatActivity {
             startActivity(i);
             finish();
         } else {
+            // commented 14112019, do not need addressbook write permission. all edits/add/delete contacts is not allowed Caltxt
+            if (!((Caltxt) getApplication()).isPermissionGranted(SplashScreen.this, "android.permission.READ_CONTACTS")) {
+                if (PackageManager.PERMISSION_GRANTED !=
+                        Caltxt.checkPermission(SplashScreen.this, "android.permission.READ_CONTACTS",
+                                Caltxt.CALTXT_PERMISSIONS_REQUEST_READ_CONTACTS,
+                                "Caltxt need permission to read your contacts to build contact list. It will never upload your contacts" +
+                                        " to remote server")) {
+                    return;
+                }
+            }
+
+            if(!((Caltxt) getApplication()).isPermissionGranted(SplashScreen.this, "android.permission.ACCESS_COARSE_LOCATION")) {
+                if (PackageManager.PERMISSION_GRANTED
+                        != Caltxt.checkPermission(SplashScreen.this, "android.permission.ACCESS_COARSE_LOCATION",
+                        Caltxt.CALTXT_PERMISSIONS_REQUEST_ACCESS_COARSE_LOCATION,
+                        "Caltxt needs permission to use nearby WiFi hotspots to tag your status")) {
+
+                    Log.i(TAG, "onCreate : Declined CALTXT_PERMISSIONS_REQUEST_ACCESS_COARSE_LOCATION");
+                    return;
+                }
+            }
+
+            Log.i(TAG, "onCreate : InitApp");
             mInitAppTask = new InitApp();
             mInitAppTask.execute((Void) null);
             Addressbook.getInstance(getApplicationContext()).getMyCountryCode();// initialized country code
@@ -114,6 +137,7 @@ public class SplashScreen extends AppCompatActivity {
         @Override
         protected Boolean doInBackground(Void... params) {
 //			RebootServiceJob.schedule();
+            Log.i(TAG, "InitApp : doInBackground");
 			/* start service directly here, otherwise scheduler takes time to initiate*/
             // commented 24-JUL-17, start service in Caltxt.java, dont have to start every time UI is opened
             startService(new Intent(SplashScreen.this, RebootService.class).putExtra("caller", "RebootReceiver"));
@@ -152,6 +176,7 @@ public class SplashScreen extends AppCompatActivity {
             } else {
             }
             mInitAppTask = null;
+            Log.i(TAG, "InitApp : onPostExecute "+success);
         }
 
         @Override
@@ -170,7 +195,7 @@ public class SplashScreen extends AppCompatActivity {
             screenHeight = metrics.heightPixels;
         }
     */
-/*    @Override
+    @Override
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
 
         Log.v(TAG, TAG + "::onRequestPermissionsResult");
@@ -192,5 +217,5 @@ public class SplashScreen extends AppCompatActivity {
                 }
                 break;
         }
-    }*/
+    }
 }

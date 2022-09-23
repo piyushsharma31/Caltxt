@@ -36,13 +36,14 @@ public class Caltxt extends Application {
     public static boolean WAIT_FOR_IDLE_STATE_AND_START = false;
     public static XMob mobile_to_call;
 
-    public static final int CALTXT_PERMISSIONS_REQUEST_READ_CONTACTS = 1;
+    public static final int CALTXT_PERMISSIONS_REQUEST_WRITE_CONTACTS = 1;
     public static final int CALTXT_PERMISSIONS_REQUEST_READ_PHONE_STATE = 2;
     public static final int CALTXT_PERMISSIONS_REQUEST_SEND_SMS = 3;
     public static final int CALTXT_PERMISSIONS_REQUEST_ACCESS_COARSE_LOCATION = 4;
     public static final int CALTXT_PERMISSIONS_REQUEST_ACCESS_INTERNET = 5;
     public static final int CALTXT_PERMISSIONS_REQUEST_CALL = 6;
-    public static final int CALTXT_PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION = 7;
+//    public static final int CALTXT_PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION = 7;
+    public static final int CALTXT_PERMISSIONS_REQUEST_READ_CONTACTS = 8;
 
     private static Context mContext = null;
 
@@ -119,18 +120,21 @@ public class Caltxt extends Application {
     }
 
     public static boolean isPermissionGranted(final Activity activity, final String permission) {
-        int ret = ContextCompat.checkSelfPermission(activity, permission);
+        int ret = ContextCompat.checkSelfPermission(activity,
+                permission/*Manifest.permission.READ_CONTACTS*/);
 
         return ret == PackageManager.PERMISSION_GRANTED;
     }
 
     public static int checkPermission(final Activity activity, final String permission, final int callbackArg, String rationale) {
-        int ret = ContextCompat.checkSelfPermission(activity, permission);
+        int ret = ContextCompat.checkSelfPermission(activity,
+                permission/*Manifest.permission.READ_CONTACTS*/);
 
         if (ret != PackageManager.PERMISSION_GRANTED) {
 
             // Should we show an explanation?
-            if (ActivityCompat.shouldShowRequestPermissionRationale(activity, permission)) {
+            if (ActivityCompat.shouldShowRequestPermissionRationale(activity,
+                    permission/*Manifest.permission.READ_CONTACTS*/)) {
 
                 // Show an explanation to the user *asynchronously* -- don't
                 // block
@@ -143,10 +147,10 @@ public class Caltxt extends Application {
                             public void onClick(DialogInterface dialog, int which) {
                                 Log.w(TAG, TAG + "::onClick which " + which);
                                 if (which == -2) {
-                                    //activity.finish();
+                                    activity.finish();
                                 } else {
                                     ActivityCompat.requestPermissions(activity,
-                                            new String[]{permission},
+                                            new String[]{permission/*Manifest.permission.READ_CONTACTS*/},
                                             callbackArg);
                                 }
                             }
@@ -159,7 +163,7 @@ public class Caltxt extends Application {
                 // No explanation needed, we can request the permission.
 
                 ActivityCompat.requestPermissions(activity,
-                        new String[]{permission},
+                        new String[]{permission/*Manifest.permission.READ_CONTACTS*/},
                         callbackArg);
 
                 // MY_PERMISSIONS_REQUEST_READ_CONTACTS is an
@@ -185,7 +189,8 @@ public class Caltxt extends Application {
     }
 
     public boolean hasTelephony() {
-        TelephonyManager tm = (TelephonyManager) mContext
+        //commented 18SEP2022
+        /*TelephonyManager tm = (TelephonyManager) mContext
                 .getSystemService(Context.TELEPHONY_SERVICE);
         if (tm.getDeviceId() != null
                 && mContext.getPackageManager().hasSystemFeature(
@@ -195,7 +200,8 @@ public class Caltxt extends Application {
         } else {
             // NO SMS HERE :(
             return false;
-        }
+        }*/
+        return true;
     }
 
     public boolean hasSim() {

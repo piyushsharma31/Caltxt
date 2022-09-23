@@ -426,7 +426,7 @@ public class CaltxtToast extends AppCompatActivity implements PropertyChangeList
                 // not registered, so not caltxt is sent, therefore initiate call here only
                 XMob mob = Addressbook.getInstance(getApplicationContext()).get(username);
                 CaltxtHandler.get(CaltxtToast.this).initiateNormalCall(
-                        mob==null?("+"+username):mob.getNumber(),
+                        mob==null?"+"+username:mob.getNumber(),
                         CaltxtToast.this);
                 finish();
             }
@@ -730,7 +730,7 @@ public class CaltxtToast extends AppCompatActivity implements PropertyChangeList
 
 //		if((ctx.getUsernameCaller().equals(Addressbook.getMyProfile().getUsername()))) {
         if (Addressbook.isItMe(ctx.getUsernameCaller())) {
-            mSubjectText.setText(ctx.getNumberCallee());
+            mSubjectText.setText(/*"+" +*/ ctx.getNumberCallee());
             XMob mob = addressbook.getRegistered(ctx.getNumberCallee());
             if (mob !=null && mob.getOccupation() != null && mob.getOccupation().length() > 0) {
                 mSubject2Text.setVisibility(View.VISIBLE);
@@ -746,7 +746,7 @@ public class CaltxtToast extends AppCompatActivity implements PropertyChangeList
 //				mCancelBtn.setVisibility(View.GONE);
             }
         } else {
-            mSubjectText.setText(ctx.getUsernameCaller());
+            mSubjectText.setText(/*"+" +*/ ctx.getUsernameCaller());
             if (ctx.getOccupation().length() == 0) {
                 mSubject2Text.setVisibility(View.GONE);
             } else {
