@@ -307,6 +307,7 @@ public class ConnectionFirebase extends FirebaseMessagingService {
     private static void sendUpstreamMessage(String sender, String recipient, String msg, String msgId, String priority, int ttl/*sec*/, boolean receipt) {
         String tmp = new String(msg.getBytes()).substring(0, 2)
                 + Base64.encodeToString(msg.getBytes(), Base64.DEFAULT);
+        Log.i(TAG, "sendUpstreamMessage sender:" + sender + " recipient:" + recipient + " message " + msg+ " msgId " + msgId+ " priority " + priority+ " ttl " + ttl+ " receipt " + receipt);
 
         // Normal priority. This is the default priority for data messages
         // High priority. This is the default priority for notification messages
@@ -352,12 +353,12 @@ public class ConnectionFirebase extends FirebaseMessagingService {
 
                 Log.d(TAG, "User data is changed! " + token);
                 if (qos == Constants.mqtt_defaultQosMessage) {
-                    Log.i(TAG, "publish high, sender:" + sender + " recipient:" + recipient + " message " + message);
+//                    Log.i(TAG, "publish high, sender:" + sender + " recipient:" + recipient + " message " + message);
 
                     sendUpstreamMessage(sender, token, message, msgId, "high", ttl, receipt);
 //					RebootService.getConnection(context).addAction(Constants.firebasePublishedProperty, message, message);
                 } else {
-                    Log.i(TAG, "publish normal, sender:" + sender + " recipient:" + recipient + " message " + message);
+//                    Log.i(TAG, "publish normal, sender:" + sender + " recipient:" + recipient + " message " + message);
 
                     sendUpstreamMessage(sender, token, message, msgId, "normal", ttl, receipt);
 //					RebootService.getConnection(context).addAction(Constants.firebasePublishedProperty, message, message);

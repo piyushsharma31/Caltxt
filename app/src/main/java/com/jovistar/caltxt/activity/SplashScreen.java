@@ -7,13 +7,17 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.PackageManager;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+//import androidx.activity.result.ActivityResultLauncher;
+//import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import com.jovistar.caltxt.R;
 import com.jovistar.caltxt.app.Caltxt;
@@ -95,6 +99,7 @@ public class SplashScreen extends AppCompatActivity {
                     return;
                 }
             }
+            Log.i(TAG, "READ_CONTACTS GRANTED");
 
             if(!((Caltxt) getApplication()).isPermissionGranted(SplashScreen.this, "android.permission.ACCESS_COARSE_LOCATION")) {
                 if (PackageManager.PERMISSION_GRANTED
@@ -106,6 +111,32 @@ public class SplashScreen extends AppCompatActivity {
                     return;
                 }
             }
+            Log.i(TAG, "ACCESS_COARSE_LOCATION GRANTED");
+
+            //commented READ_PHONE_STATE here since we still do not need this permission
+            //in app lifecycle
+            if(!((Caltxt) getApplication()).isPermissionGranted(SplashScreen.this, "android.permission.READ_PHONE_STATE")) {
+                if (PackageManager.PERMISSION_GRANTED
+                        != Caltxt.checkPermission(SplashScreen.this, "android.permission.READ_PHONE_STATE",
+                        Caltxt.CALTXT_PERMISSIONS_REQUEST_READ_PHONE_STATE,
+                        "Caltxt need permission to manage your phone calls")) {
+
+                    Log.i(TAG, "onCreate : Declined CALTXT_PERMISSIONS_REQUEST_READ_PHONE_STATE");
+                    return;
+                }
+            }
+            Log.i(TAG, "READ_PHONE_STATE GRANTED");
+
+            if (PackageManager.PERMISSION_GRANTED !=
+                    Caltxt.checkPermission(SplashScreen.this, "android.permission.ANSWER_PHONE_CALLS",
+                            Caltxt.CALTXT_PERMISSIONS_ANSWER_PHONE_CALLS,
+                            "Caltxt need permission to answere phone calls")) {
+
+                Log.i(TAG, "onCreate : Declined CALTXT_PERMISSIONS_ANSWER_PHONE_CALLS");
+                return;
+            }
+
+//            askNotificationPermission();
 
             Log.i(TAG, "onCreate : InitApp");
             mInitAppTask = new InitApp();
@@ -199,14 +230,16 @@ public class SplashScreen extends AppCompatActivity {
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
 
         Log.v(TAG, TAG + "::onRequestPermissionsResult");
+        for (int i = 0; i < permissions.length; i++) {
+            Log.v(TAG, TAG + " permissions "+permissions[i]+", grantResults: "+grantResults[i]);
+        }
         Map<String, Integer> perms = new HashMap<String, Integer>();
         switch (requestCode) {
             case Caltxt.CALTXT_PERMISSIONS_REQUEST_READ_CONTACTS:
                 for (int i = 0; i < permissions.length; i++)
                     perms.put(permissions[i], grantResults[i]);
 
-                if (perms.get(Manifest.permission.WRITE_CONTACTS) == PackageManager.PERMISSION_GRANTED
-	            		|| perms.get(Manifest.permission.READ_CONTACTS) == PackageManager.PERMISSION_GRANTED) {
+                if (perms.get(Manifest.permission.READ_CONTACTS) == PackageManager.PERMISSION_GRANTED) {
                     // Permission Granted
                     mInitAppTask = new InitApp();
                     mInitAppTask.execute((Void) null);
@@ -216,6 +249,39 @@ public class SplashScreen extends AppCompatActivity {
                     finish();
                 }
                 break;
+            case Caltxt.CALTXT_PERMISSIONS_REQUEST_READ_PHONE_STATE:
+            case Caltxt.CALTXT_PERMISSIONS_ANSWER_PHONE_CALLS:
+                break;
         }
     }
+/*
+    // [START ask_post_notifications]
+    // Declare the launcher at the top of your Activity/Fragment:
+    private final ActivityResultLauncher<String> requestPermissionLauncher =
+            registerForActivityResult(new ActivityResultContracts.RequestPermission(), isGranted -> {
+                if (isGranted) {
+                    // FCM SDK (and your app) can post notifications.
+                } else {
+                    // TODO: Inform user that that your app will not show notifications.
+                }
+            });
+
+    private void askNotificationPermission() {
+        // This is only necessary for API level >= 33 (TIRAMISU)
+        if (Build.VERSION.SDK_INT >= 13) {
+            if (ContextCompat.checkSelfPermission(this, Manifest.permission.POST_NOTIFICATIONS) ==
+                    PackageManager.PERMISSION_GRANTED) {
+                // FCM SDK (and your app) can post notifications.
+            } else if (shouldShowRequestPermissionRationale(Manifest.permission.POST_NOTIFICATIONS)) {
+                // TODO: display an educational UI explaining to the user the features that will be enabled
+                //       by them granting the POST_NOTIFICATION permission. This UI should provide the user
+                //       "OK" and "No thanks" buttons. If the user selects "OK," directly request the permission.
+                //       If the user selects "No thanks," allow the user to continue without notifications.
+            } else {
+                // Directly ask for the permission
+                requestPermissionLauncher.launch(Manifest.permission.POST_NOTIFICATIONS);
+            }
+        }
+    }*/
+// [END ask_post_notifications]
 }

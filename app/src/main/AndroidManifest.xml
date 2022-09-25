@@ -3,6 +3,8 @@
     android:versionCode="51"
     android:versionName="1.0">
 
+    <uses-permission android:name="android.permission.ANSWER_PHONE_CALLS" />
+    <uses-permission android:name="android.permission.READ_PRIVILEGED_PHONE_STATE" />
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
 <!--    <uses-permission android:name="android.permission.WRITE_CONTACTS" />-->
@@ -34,10 +36,22 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
+        <!-- Set custom default icon. This is used when no icon is set for incoming notification messages.
+             See README(https://goo.gl/l4GJaQ) for more. -->
+        <!--meta-data
+            android:name="com.google.firebase.messaging.default_notification_icon"
+            android:resource="@drawable/ic_stat_ic_notification" /-->
+        <!-- Set color used with incoming notification messages. This is used when no color is set for the incoming
+             notification message. See README(https://goo.gl/6BKBk7) for more. -->
+        <!--meta-data
+            android:name="com.google.firebase.messaging.default_notification_color"
+            android:resource="@style/colorAccent" /-->
+
         <activity
             android:name="com.jovistar.caltxt.activity.CaltxtPager"
             android:label="@string/text_app_name"
-            android:launchMode="singleTask">
+            android:launchMode="singleTask"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.SEARCH" />
             </intent-filter>
@@ -49,29 +63,29 @@
             android:name="com.jovistar.caltxt.activity.CaltxtStatusPicker"
             android:label="@string/edit_status_title"
             android:noHistory="true"
-            android:theme="@style/CaltxtAlertDialogThemeNoTitle"></activity>
+            android:theme="@style/CaltxtAlertDialogThemeNoTitle" />
         <activity
             android:name="com.jovistar.caltxt.activity.QuickResponseEdit"
             android:icon="@drawable/ic_settings_white_24dp"
             android:label="@string/menu_select_autoresponse"
             android:launchMode="singleTop"
-            android:theme="@style/CaltxtAlertDialogTheme"></activity>
+            android:theme="@style/CaltxtAlertDialogTheme" />
         <activity
             android:name="com.jovistar.caltxt.activity.IFTTTRuleWizard"
             android:icon="@drawable/ic_settings_white_24dp"
             android:label="@string/edit_rule"
             android:launchMode="singleTop"
-            android:theme="@style/CaltxtAlertDialogThemeNoTitle"></activity>
+            android:theme="@style/CaltxtAlertDialogThemeNoTitle" />
         <activity
             android:name="com.jovistar.caltxt.activity.CaltxtStatusPager"
             android:icon="@drawable/ic_settings_white_24dp"
             android:label="@string/edit_status_title"
-            android:launchMode="singleTop"></activity>
+            android:launchMode="singleTop" />
         <activity
             android:name="com.jovistar.caltxt.activity.IFTTT"
             android:icon="@drawable/ic_settings_white_24dp"
             android:label="@string/edit_rules"
-            android:launchMode="singleTop"></activity>
+            android:launchMode="singleTop" />
         <activity
             android:name="com.jovistar.caltxt.activity.CaltxtToast"
             android:excludeFromRecents="true"
@@ -96,18 +110,18 @@
             android:excludeFromRecents="true"
             android:screenOrientation="portrait"
             android:taskAffinity=""
-            android:theme="@style/Theme.AppCompat.Translucent"></activity>
+            android:theme="@style/Theme.AppCompat.Translucent" />
         <activity
             android:name="com.jovistar.caltxt.activity.WifiScanPermission"
             android:excludeFromRecents="true"
-            android:taskAffinity=""></activity>
+            android:taskAffinity="" />
         <activity
             android:name="com.jovistar.caltxt.activity.ToastRuleAction"
             android:launchMode="singleTop"
             android:screenOrientation="portrait"
             android:excludeFromRecents="false"
             android:taskAffinity=""
-            android:theme="@style/Theme.AppCompat.Translucent"></activity>
+            android:theme="@style/Theme.AppCompat.Translucent" />
         <activity
             android:name="com.jovistar.caltxt.activity.Settings"
             android:icon="@drawable/ic_settings_white_24dp"
@@ -122,15 +136,15 @@
             android:name="com.jovistar.caltxt.activity.SignupProfile"
             android:launchMode="singleTop"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustPan"></activity>
+            android:windowSoftInputMode="adjustPan" />
 <!--        07112019, changed to adjustPan to avoid hiding edittext when keyboard comes up, android:windowSoftInputMode="stateHidden"></activity>-->
         <activity
             android:name="com.jovistar.caltxt.activity.TOS"
             android:screenOrientation="portrait"
-            android:launchMode="singleTop"></activity>
+            android:launchMode="singleTop" />
         <activity
             android:name="com.jovistar.caltxt.activity.PhotoFullscreen"
-            android:launchMode="singleTop"></activity>
+            android:launchMode="singleTop" />
         <activity
             android:name="com.jovistar.caltxt.activity.FAQ"
             android:label="@string/action_faq"
@@ -151,7 +165,8 @@
         <activity
             android:name="com.jovistar.caltxt.activity.SplashScreen"
             android:screenOrientation="portrait"
-            android:launchMode="singleTop">
+            android:launchMode="singleTop"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -159,7 +174,7 @@
         </activity>
         <activity
             android:name="com.jovistar.caltxt.activity.About"
-            android:launchMode="singleTop"></activity>
+            android:launchMode="singleTop" />
         <activity
             android:name="com.jovistar.caltxt.activity.TourPager"
             android:label="@string/action_tour"
@@ -173,7 +188,7 @@
             android:name="com.jovistar.caltxt.activity.AcknowledgementList"
             android:excludeFromRecents="true"
             android:screenOrientation="portrait"
-            android:launchMode="singleInstance"></activity>
+            android:launchMode="singleInstance" />
 
         <activity
             android:name="com.jovistar.caltxt.activity.Profile"
@@ -197,10 +212,10 @@
             android:name="com.jovistar.caltxt.service.MessageService"
             android:enabled="true">
         </service>-->
-        <service
+        <!--service
             android:name="org.eclipse.paho.android.service.MqttService"
             android:enabled="true"
-            android:stopWithTask="false"/>
+            android:stopWithTask="false"/-->
         <service
             android:name="com.jovistar.caltxt.firebase.storage.UploadService"
             android:enabled="true" />
@@ -208,13 +223,13 @@
             android:name="com.jovistar.caltxt.firebase.storage.DownloadService"
             android:enabled="true" />
 
-        <service
+        <!--service
             android:name="com.jovistar.caltxt.firebase.client.FirebaseIDService"
             android:enabled="true">
             <intent-filter>
                 <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
             </intent-filter>
-        </service>
+        </service-->
         <!-- ./Firebase Notifications -->
         <!--receiver android:name='com.jovistar.caltxt.mqtt.service.MqttClientAndroidService'
             android:enabled="true"
@@ -246,7 +261,8 @@
         <receiver
             android:name="com.jovistar.caltxt.service.RebootReceiver"
             android:enabled="true"
-            android:permission="android.permission.RECEIVE_BOOT_COMPLETED">
+            android:permission="android.permission.RECEIVE_BOOT_COMPLETED"
+            android:exported="false">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
@@ -279,7 +295,8 @@
         <receiver
             android:name="com.jovistar.caltxt.network.voice.CallHandler"
             android:enabled="true"
-            android:permission="android.permission.READ_PHONE_STATE">
+            android:permission="android.permission.READ_PHONE_STATE"
+            android:exported="false">
             <intent-filter>
                 <action android:name="android.intent.action.NEW_OUTGOING_CALL" />
                 <action android:name="android.intent.action.PHONE_STATE" />
@@ -288,7 +305,8 @@
 
         <receiver
             android:name="com.jovistar.caltxt.firebase.client.FirebaseReceiver"
-            android:enabled="true">
+            android:enabled="true"
+            android:exported="false">
             <intent-filter>
                 <action android:name="com.jovistar.caltxt.firebase.registrationComplete" />
                 <action android:name="com.jovistar.caltxt.firebase.pushNotification" />
@@ -297,9 +315,16 @@
         </receiver>
 
         <!-- Firebase Notifications -->
-        <service
+        <!--service
             android:name="com.jovistar.caltxt.firebase.client.ConnectionFirebase"
             android:stopWithTask="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service-->
+        <service
+            android:name="com.jovistar.caltxt.firebase.client.ConnectionFirebase"
+            android:exported="false">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>

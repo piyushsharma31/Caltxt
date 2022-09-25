@@ -95,8 +95,10 @@ public class FirebaseIDService /*extends FirebaseInstanceIdService*/ {
                 // set preference to indicate registration completion
                 XUsr user = new XUsr();
                 user.id = Addressbook.getInstance(Caltxt.getCustomAppContext()).getMyProfile().getUsername();
-                user.pwd = Addressbook.getInstance(Caltxt.getCustomAppContext()).getIMEI();
-                user.cmnt = Addressbook.getInstance(Caltxt.getCustomAppContext()).getIMEI();
+                // commented below 23SEP2022 to avoid android.Manifest.permission.READ_PRIVILEGED_PHONE_STATE failure
+                // this permission is given to pre-installed apps only
+                //user.pwd = Addressbook.getInstance(Caltxt.getCustomAppContext()).getIMEI();
+                //user.cmnt = Addressbook.getInstance(Caltxt.getCustomAppContext()).getIMEI();
 
                 String u1 = SignupProfile.getPreference(Caltxt.getCustomAppContext(), Caltxt.getCustomAppContext().getString(R.string.profile_key_mobile));
                 String u2 = SignupProfile.getPreference(Caltxt.getCustomAppContext(), Caltxt.getCustomAppContext().getString(R.string.profile_key_mobile2));

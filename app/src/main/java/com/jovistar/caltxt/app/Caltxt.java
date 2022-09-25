@@ -44,6 +44,7 @@ public class Caltxt extends Application {
     public static final int CALTXT_PERMISSIONS_REQUEST_CALL = 6;
 //    public static final int CALTXT_PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION = 7;
     public static final int CALTXT_PERMISSIONS_REQUEST_READ_CONTACTS = 8;
+    public static final int CALTXT_PERMISSIONS_ANSWER_PHONE_CALLS = 9;
 
     private static Context mContext = null;
 
@@ -82,7 +83,9 @@ public class Caltxt extends Application {
 
         // added 24-JUL-17, startService initialize at start of App
         // rather than everytime UI is opened
-        startService(new Intent(getApplicationContext(), RebootService.class).putExtra("caller", "RebootReceiver"));
+        //commented 23SEP2022. this will trigger READ_CONTACTS, therefore moving
+        //it to Activity so that permission can be asked if not already
+        //startService(new Intent(getApplicationContext(), RebootService.class).putExtra("caller", "RebootReceiver"));
 
         int temporaryStatusHolder = -1;
         try {
@@ -127,14 +130,12 @@ public class Caltxt extends Application {
     }
 
     public static int checkPermission(final Activity activity, final String permission, final int callbackArg, String rationale) {
-        int ret = ContextCompat.checkSelfPermission(activity,
-                permission/*Manifest.permission.READ_CONTACTS*/);
+        int ret = ContextCompat.checkSelfPermission(activity, permission);
 
         if (ret != PackageManager.PERMISSION_GRANTED) {
 
             // Should we show an explanation?
-            if (ActivityCompat.shouldShowRequestPermissionRationale(activity,
-                    permission/*Manifest.permission.READ_CONTACTS*/)) {
+            if (ActivityCompat.shouldShowRequestPermissionRationale(activity, permission)) {
 
                 // Show an explanation to the user *asynchronously* -- don't
                 // block
@@ -150,7 +151,7 @@ public class Caltxt extends Application {
                                     activity.finish();
                                 } else {
                                     ActivityCompat.requestPermissions(activity,
-                                            new String[]{permission/*Manifest.permission.READ_CONTACTS*/},
+                                            new String[]{permission},
                                             callbackArg);
                                 }
                             }
@@ -163,7 +164,7 @@ public class Caltxt extends Application {
                 // No explanation needed, we can request the permission.
 
                 ActivityCompat.requestPermissions(activity,
-                        new String[]{permission/*Manifest.permission.READ_CONTACTS*/},
+                        new String[]{permission},
                         callbackArg);
 
                 // MY_PERMISSIONS_REQUEST_READ_CONTACTS is an

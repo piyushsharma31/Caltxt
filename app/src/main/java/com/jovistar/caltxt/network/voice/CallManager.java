@@ -1,11 +1,15 @@
 package com.jovistar.caltxt.network.voice;
 
+import android.Manifest;
+import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.media.AudioManager;
 import android.os.Build;
 import android.os.RemoteException;
 import android.preference.PreferenceManager;
+import android.telecom.TelecomManager;
 import android.telephony.CellIdentityCdma;
 import android.telephony.CellIdentityGsm;
 import android.telephony.CellIdentityLte;
@@ -22,9 +26,13 @@ import android.telephony.cdma.CdmaCellLocation;
 import android.telephony.gsm.GsmCellLocation;
 import android.util.Log;
 
+import androidx.core.app.ActivityCompat;
+
 import com.android.internal.telephony.ITelephony;
 import com.jovistar.caltxt.R;
 import com.jovistar.caltxt.activity.Settings;
+import com.jovistar.caltxt.activity.SplashScreen;
+import com.jovistar.caltxt.app.Caltxt;
 import com.jovistar.caltxt.app.Constants;
 import com.jovistar.caltxt.phone.Addressbook;
 import com.jovistar.commons.bo.XMob;
@@ -50,7 +58,7 @@ public class CallManager {
 
     //    private static ArrayList<Call> outgoingCalls = new ArrayList<Call>();
 //    private static ArrayList<Call> incomingCalls = new ArrayList<Call>();
-    private static HashMap<String/*phone number*/, Long/*time*/> outgoingCalls = new HashMap<String, Long>();
+    private static HashMap<String, Long> outgoingCalls = new HashMap<String, Long>();
     private static HashMap<String, Long> incomingCalls = new HashMap<String, Long>();
 
     static ITelephony telephonyService = null;
@@ -116,16 +124,16 @@ public class CallManager {
     public boolean isIncomingCallInProgress(String number) {
         number = XMob.toFQMN(number, Addressbook.getMyCountryCode());
         return incomingCalls.containsKey(number);
-/*        Iterator<Call> it = incomingCalls.iterator();
+//        Iterator<Call> it = incomingCalls.iterator();
+//
+//        Call object = null;
+//        while (it.hasNext()) {
+//            object = (Call) it.next();
+//            if (object.number.equals(number))
+//                return true;
+//        }
 
-        Call object = null;
-        while (it.hasNext()) {
-            object = (Call) it.next();
-            if (object.number.equals(number))
-                return true;
-        }
-
-        return false;*/
+//        return false;
     }
 
     public synchronized boolean isOutgoingCallInProgress(String number) {
@@ -241,8 +249,20 @@ public class CallManager {
     }
 
     public static void callControllerInit(Context context) {
-        TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
+        return;
+        //commented 25SEP2022 -- internal API cannot call
+/*        TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
 
+        TelecomManager telecomManager = (TelecomManager) context.getSystemService(Context.TELECOM_SERVICE);
+        if (ActivityCompat.checkSelfPermission(context, Manifest.permission.ANSWER_PHONE_CALLS) != PackageManager.PERMISSION_GRANTED) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+                //telecomManager.endCall();
+            }
+
+        }else{
+            //Ask for permission here
+
+        }
         Log.d(TAG, "callControllerInit START");
         // Java Reflections
         Class c = null;
@@ -272,12 +292,14 @@ public class CallManager {
             }
         }
 
-        Log.d(TAG, "callControllerInit END");
+        Log.d(TAG, "callControllerInit END");*/
     }
 
     public void listen(Context context) {
 
-        TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
+        return;
+        //commented 25SEP2022 -- internal API
+/*        TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
 //		if (is_blocked) {
         PhoneStateReceiver callBlockListener = PhoneStateReceiver.getInstance(context);
         telephonyManager.listen(callBlockListener, PhoneStateListener.LISTEN_NONE);
@@ -302,7 +324,7 @@ public class CallManager {
         } catch (SecurityException e) {
             PHONE_LISTENER_FLAGS = PhoneStateListener.LISTEN_CALL_STATE;
             telephonyManager.listen(callBlockListener, PHONE_LISTENER_FLAGS);
-        }
+        }*/
         //			telephonyManager.listen(callBlockListener, PhoneStateListener.LISTEN_CELL_LOCATION);
 //		} else {
 //			telephonyManager.listen(callBlockListener, PhoneStateListener.LISTEN_NONE);
@@ -316,11 +338,13 @@ public class CallManager {
         }
 
         TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
-        String networkOperator = telephonyManager.getNetworkOperator();
+        //commented 25SEP2022 -- internal API
+        // String networkOperator = telephonyManager.getNetworkOperator();
         if (loc.getLac() == -1 || loc.getCid() == -1) {
 
         } else {
-            cid = telephonyManager.getNetworkOperator() + "." + (loc.getLac() & 0xffff) + "." + (loc.getCid() & 0xffff);
+            //commented 25SEP2022 -- internal API
+            //cid = telephonyManager.getNetworkOperator() + "." + (loc.getLac() & 0xffff) + "." + (loc.getCid() & 0xffff);
         }
 
         Log.d(TAG, "getCellId GsmCellLocation " + cid);
@@ -337,8 +361,9 @@ public class CallManager {
         if (loc.getNetworkId() == -1 || loc.getBaseStationId() == -1) {
 
         } else {
-            cid = telephonyManager.getNetworkOperator()/*loc.getSystemId()*/
-                    + "." + (loc.getNetworkId()) + "." + (loc.getBaseStationId());
+            //commented 25SEP2022 -- internal API
+//            cid = telephonyManager.getNetworkOperator()/*loc.getSystemId()*/
+//                    + "." + (loc.getNetworkId()) + "." + (loc.getBaseStationId());
         }
         Log.d(TAG, "getCellId CdmaCellLocation " + cid);
         return cid;
@@ -499,7 +524,8 @@ public class CallManager {
 
         try {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
-                cellsInfo = telephonyManager.getAllCellInfo();
+                //commented 25SEP2022 -- internal API
+                //cellsInfo = telephonyManager.getAllCellInfo();
             }
         } catch (SecurityException e) {
             // program will crash most likely if permission is not explicitly granted by user

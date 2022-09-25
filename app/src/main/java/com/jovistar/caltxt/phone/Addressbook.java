@@ -1565,7 +1565,7 @@ public class Addressbook extends Book {
     public String getIMEI() {
         TelephonyManager mngr = (TelephonyManager) mContext
                 .getSystemService(Context.TELEPHONY_SERVICE);
-        return mngr.getDeviceId();// unique ID; IMEI for GSM or ESN for CDMA;
+        return mngr.getImei();// unique ID; IMEI for GSM or ESN for CDMA;
         // does not change with SIM
     }
 

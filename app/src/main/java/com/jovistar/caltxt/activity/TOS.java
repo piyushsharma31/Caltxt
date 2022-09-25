@@ -65,13 +65,14 @@ public class TOS extends AppCompatActivity {
                     @Override
                     public void onClick(View view) {
 
-                        if (PackageManager.PERMISSION_GRANTED
+                        //ommented 23SEP2022, call it after signup
+                        /*if (PackageManager.PERMISSION_GRANTED
                                 != Caltxt.checkPermission(TOS.this, "android.permission.READ_PHONE_STATE",
                                 Caltxt.CALTXT_PERMISSIONS_REQUEST_READ_PHONE_STATE,
                                 "Caltxt need permission to manage your phone calls")) {
 
                             return;
-                        }
+                        }*/
 
 						/*
 						if(PackageManager.PERMISSION_GRANTED
